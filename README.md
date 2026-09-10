@@ -101,6 +101,30 @@ a live feed, and a live order-execution layer with kill switches) — happy
 to build any of those next once you've told me which real data source and
 exchange/broker you want them wired to.
 
+## TradingView / Pine Script version
+
+`pine/mtf_mean_reversion_pullback.pine` is a Pine Script v6 port of the
+same logic (1h EMA trend filter, 5m RSI/Bollinger pullback trigger via
+`request.security_lower_tf`, ATR stop/target, fixed-fractional sizing) for
+use directly in TradingView's Strategy Tester.
+
+- Paste it into TradingView's Pine Editor, put the chart on your execution
+  timeframe (1H by default), and set "Signal timeframe" to something lower
+  (5m default) -- it errors out if signal TF isn't lower than chart TF.
+- TradingView doesn't place live orders on most crypto exchanges directly.
+  Each `strategy.entry`/`strategy.exit`/`strategy.close_all` call sets an
+  `alert_message` with a JSON payload (action/symbol/qty) -- create a
+  TradingView alert on this strategy with "Order fills only", point its
+  webhook at your bot/relay (e.g. a small server, or a service like
+  3Commas), and adjust the JSON keys to match whatever that relay expects.
+- I could not compile-test this in TradingView from here (no access to
+  their editor) -- paste it in and check for compiler errors before
+  trusting it; the logic mirrors the already-tested Python version but
+  Pine's multi-timeframe semantics (`request.security_lower_tf`) differ
+  enough from the Python backtest engine that results won't match exactly.
+- Same rule as the Python bot: backtest on real history, then paper trade,
+  before connecting it to anything that can place real orders.
+
 ## Layout
 
 ```

@@ -1,0 +1,142 @@
+//@version=6
+// Multi-timeframe mean-reversion pullback strategy.
+// Port of tradingbot/strategy.py (see repo README for the Python/backtest version).
+//
+// SETUP:
+//   1. Open the chart on your EXECUTION timeframe (default assumption: 1H).
+//      Trades are only opened/managed on the chart's own timeframe.
+//   2. Set "Signal timeframe" below to a LOWER timeframe than the chart
+//      (default: 5). This is where the RSI/Bollinger pullback is detected.
+//   3. Backtest in the Strategy Tester, then use TradingView alerts
+//      ("Order fills only", using the alert_message set on each order
+//      below) to forward JSON to your webhook/bot relay for execution --
+//      TradingView itself does not place live orders on most crypto
+//      exchanges. Adjust the JSON keys to match whatever relay you use.
+//
+// This is a research tool, not a profit guarantee. Validate on real
+// historical data and paper trade before risking real capital.
+
+strategy(
+     "MTF Mean-Reversion Pullback",
+     overlay = true,
+     initial_capital = 10000,
+     currency = currency.USD,
+     default_qty_type = strategy.fixed,
+     default_qty_value = 1,
+     commission_type = strategy.commission.percent,
+     commission_value = 0.04,   // ~4 bps taker fee, adjust to your exchange
+     slippage = 2,              // in ticks, adjust to the symbol's tick size
+     process_orders_on_close = false,
+     pyramiding = 0)
+
+// ===================== Inputs =====================
+signalTF        = input.timeframe("5", "Signal timeframe (lower TF pullback trigger)", group = "Timeframes")
+
+emaFastLen      = input.int(20, "EMA Fast", group = "Trend Filter (exec TF)")
+emaSlowLen      = input.int(50, "EMA Slow", group = "Trend Filter (exec TF)")
+
+rsiPeriod       = input.int(14, "RSI Period", group = "Pullback Trigger (signal TF)")
+rsiOversold     = input.float(30.0, "RSI Oversold", group = "Pullback Trigger (signal TF)")
+rsiOverbought   = input.float(70.0, "RSI Overbought", group = "Pullback Trigger (signal TF)")
+bbPeriod        = input.int(20, "Bollinger Period", group = "Pullback Trigger (signal TF)")
+bbMult          = input.float(2.0, "Bollinger StdDev Mult", group = "Pullback Trigger (signal TF)")
+
+atrPeriod       = input.int(14, "ATR Period", group = "Risk")
+atrStopMult     = input.float(2.0, "ATR Stop Multiple", group = "Risk")
+rrRatio         = input.float(1.5, "Reward:Risk Ratio", group = "Risk")
+maxHoldingBars  = input.int(48, "Max Holding Bars (exec TF)", group = "Risk")
+riskPerTradePct = input.float(1.0, "Risk % of Equity per Trade", group = "Risk") / 100.0
+
+allowShort      = input.bool(false, "Allow Shorts", group = "Direction")
+
+// ===================== Guard: signal TF must be lower than chart TF =====================
+if timeframe.in_seconds(signalTF) >= timeframe.in_seconds(timeframe.period)
+    runtime.error("Signal timeframe must be LOWER than the chart timeframe. Put this chart on 1H (or your chosen exec TF) and set Signal TF to something smaller, e.g. 5.")
+
+// ===================== Trend filter + ATR (exec TF = chart TF) =====================
+emaFast = ta.ema(close, emaFastLen)
+emaSlow = ta.ema(close, emaSlowLen)
+atrVal  = ta.atr(atrPeriod)
+
+uptrend   = close > emaSlow and emaFast > emaSlow
+downtrend = close < emaSlow and emaFast < emaSlow
+
+plot(emaFast, "EMA Fast", color = color.new(color.aqua, 0))
+plot(emaSlow, "EMA Slow", color = color.new(color.orange, 0))
+bgcolor(uptrend ? color.new(color.green, 92) : downtrend ? color.new(color.red, 92) : na)
+
+// ===================== Pullback trigger, evaluated on the lower signal TF =====================
+f_longPullback() =>
+    r = ta.rsi(close, rsiPeriod)
+    basis = ta.sma(close, bbPeriod)
+    dev = bbMult * ta.stdev(close, bbPeriod)
+    lower = basis - dev
+    r < rsiOversold and close <= lower
+
+f_shortPullback() =>
+    r = ta.rsi(close, rsiPeriod)
+    basis = ta.sma(close, bbPeriod)
+    dev = bbMult * ta.stdev(close, bbPeriod)
+    upper = basis + dev
+    r > rsiOverbought and close >= upper
+
+longSignals  = request.security_lower_tf(syminfo.tickerid, signalTF, f_longPullback())
+shortSignals = request.security_lower_tf(syminfo.tickerid, signalTF, f_shortPullback())
+
+longPullbackInBar  = array.size(longSignals) > 0 and array.includes(longSignals, true)
+shortPullbackInBar = array.size(shortSignals) > 0 and array.includes(shortSignals, true)
+
+// ===================== Entry candidates =====================
+longCandidate  = uptrend and longPullbackInBar
+shortCandidate = allowShort and downtrend and shortPullbackInBar
+
+plotshape(longCandidate, title = "Long signal", style = shape.triangleup, location = location.belowbar, color = color.green, size = size.tiny)
+plotshape(shortCandidate, title = "Short signal", style = shape.triangledown, location = location.abovebar, color = color.red, size = size.tiny)
+
+// ===================== Position sizing & entries =====================
+var float stopDistLong   = na
+var float targetDistLong = na
+var float stopDistShort   = na
+var float targetDistShort = na
+var int   entryBarIndex   = na
+
+if longCandidate and strategy.position_size == 0 and not na(atrVal) and atrVal > 0
+    stopDist   = atrVal * atrStopMult
+    riskAmount = strategy.equity * riskPerTradePct
+    qty        = riskAmount / stopDist
+    stopDistLong   := stopDist
+    targetDistLong := stopDist * rrRatio
+    strategy.entry("Long", strategy.long, qty = qty,
+         alert_message = '{"action":"buy","symbol":"{{ticker}}","qty":"' + str.tostring(qty) + '","price":"{{close}}"}')
+
+if shortCandidate and strategy.position_size == 0 and not na(atrVal) and atrVal > 0
+    stopDist   = atrVal * atrStopMult
+    riskAmount = strategy.equity * riskPerTradePct
+    qty        = riskAmount / stopDist
+    stopDistShort   := stopDist
+    targetDistShort := stopDist * rrRatio
+    strategy.entry("Short", strategy.short, qty = qty,
+         alert_message = '{"action":"sell","symbol":"{{ticker}}","qty":"' + str.tostring(qty) + '","price":"{{close}}"}')
+
+if strategy.position_size != 0 and strategy.position_size[1] == 0
+    entryBarIndex := bar_index
+if strategy.position_size == 0 and strategy.position_size[1] != 0
+    entryBarIndex := na
+
+// ===================== Exits: ATR stop / target =====================
+if strategy.position_size > 0
+    stopPrice   = strategy.position_avg_price - stopDistLong
+    targetPrice = strategy.position_avg_price + targetDistLong
+    strategy.exit("XLong", "Long", stop = stopPrice, limit = targetPrice,
+         alert_message = '{"action":"close_long","symbol":"{{ticker}}"}')
+
+if strategy.position_size < 0
+    stopPrice   = strategy.position_avg_price + stopDistShort
+    targetPrice = strategy.position_avg_price - targetDistShort
+    strategy.exit("XShort", "Short", stop = stopPrice, limit = targetPrice,
+         alert_message = '{"action":"close_short","symbol":"{{ticker}}"}')
+
+// ===================== Timeout exit =====================
+if strategy.position_size != 0 and not na(entryBarIndex) and (bar_index - entryBarIndex) >= maxHoldingBars
+    strategy.close_all(comment = "Timeout",
+         alert_message = '{"action":"close_all","symbol":"{{ticker}}"}')
