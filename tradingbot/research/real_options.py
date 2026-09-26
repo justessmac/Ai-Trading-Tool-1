@@ -7,10 +7,14 @@ tool results are parsed here, keyed by OCC symbol.
 
 Workflow:
   plan.csv    trade plan: the model's entry days and strikes (see
-              `run_real_backtest`), with the real Friday expiration
+              `make_plan`), with the standard monthly expiration
               nearest to 45 DTE.
   `chunk N`   prints the contract lookups needed for trades in chunk N,
               grouped by strike, skipping contracts already fetched.
+  `pending`   prints get_option_historicals batches for looked-up IDs
+              (ids.csv) that have no bars yet.
+  `fallbacks` prints $5 strikes to look up for legs whose planned strike
+              was not yet listed on the entry day.
   `status`    shows how many planned contracts have price data.
   `run`       prices every trade from real closes and writes the report.
 
@@ -31,7 +35,7 @@ import pandas as pd
 
 from tradingbot.research.data import CACHE_DIR, load_daily
 from tradingbot.research.options_sim import DIV_YIELD, approx_rates, bs_price, implied_vol
-from tradingbot.research.stats import trade_stats
+from tradingbot.research.stats import Criteria, trade_stats
 
 OPT_DIR = CACHE_DIR / "options"
 PLAN = OPT_DIR / "plan.csv"
@@ -60,10 +64,16 @@ def load_option_bars() -> dict[tuple[str, float], pd.Series]:
         for res in payload.get("data", {}).get("results", []):
             if not res.get("occ_symbol") or not res.get("bars"):
                 continue
+            if res["occ_symbol"][:6].strip() != "SPY":
+                continue  # adjusted/non-standard deliverable (e.g. "SPY1")
             expiry, strike, kind = _parse_occ(res["occ_symbol"])
             if kind != "put":
                 continue
             bars = [b for b in res["bars"] if not b.get("interpolated")]
+            # Before a strike is listed Robinhood returns 0.01 placeholders
+            # (interpolated, plus the listing day itself): drop that lead-in.
+            while bars and float(bars[0]["close_price"]) <= 0.01:
+                bars = bars[1:]
             s = pd.Series(
                 [float(b["close_price"]) for b in bars],
                 index=pd.to_datetime([b["begins_at"][:10] for b in bars]),
@@ -121,14 +131,25 @@ def make_plan() -> pd.DataFrame:
     return plan
 
 
+def _unavailable() -> set[tuple[str, float]]:
+    """(expiry, strike) pairs confirmed not listed (far-OTM strikes sometimes
+    only exist in $5 steps); `run` substitutes the nearest listed strike."""
+    path = OPT_DIR / "unavailable.csv"
+    if not path.exists():
+        return set()
+    df = pd.read_csv(path, names=["expiry", "strike"])
+    return {(e, float(k)) for e, k in zip(df.expiry, df.strike)}
+
+
 def _needed(plan: pd.DataFrame) -> pd.DataFrame:
+    skip = _unavailable()
     need = pd.concat(
         [
             plan[["trade_id", "expiry_real", "K_short"]].rename(columns={"K_short": "K"}),
             plan[["trade_id", "expiry_real", "K_long"]].rename(columns={"K_long": "K"}),
         ]
     )
-    return need
+    return need[[(e, float(k)) not in skip for e, k in zip(need.expiry_real, need.K)]]
 
 
 def chunk(n: int) -> None:
@@ -179,6 +200,36 @@ def status() -> None:
         print(f"first missing: trade {miss.trade_id.min()} ({first.entry_date}), chunk {miss.trade_id.min() // CHUNK}")
 
 
+def _nearest(bars, expiry: str, strike: float, on: pd.Timestamp | None = None, max_dist: float = 3.0):
+    """Exact strike if we have bars for it (on date `on`, when given), else
+    the nearest fetched strike for the same expiry within `max_dist` dollars
+    that was quoted that day (None if none). Odd $1 strikes are often listed
+    only weeks after the $5 ones, so a trader would use the nearest listed."""
+    def quoted(k):
+        return (expiry, k) in bars and (on is None or on in bars[(expiry, k)].index)
+
+    if quoted(strike):
+        return strike
+    cands = [k for (e, k) in bars if e == expiry and abs(k - strike) <= max_dist and quoted(k)]
+    return min(cands, key=lambda k: (abs(k - strike), k)) if cands else None
+
+
+def fallbacks() -> None:
+    """Planned legs with no quote on the entry day: print the nearest $5
+    strikes to look up (they are listed from the start of the expiry)."""
+    plan = pd.read_csv(PLAN, parse_dates=["entry_date", "expiry_real"])
+    bars = load_option_bars()
+    need = set()
+    for t in plan.itertuples():
+        e = t.expiry_real.strftime("%Y-%m-%d")
+        for K in (t.K_short, t.K_long):
+            if _nearest(bars, e, K, t.entry_date) is None:
+                need.add((e, float(5 * round(K / 5))))
+    for (e, k) in sorted(need, key=lambda x: (x[1], x[0])):
+        print(f"strike {k:.4f}  expiry {e}")
+    print(f"# {len(need)} fallback contracts to look up")
+
+
 def _slip(legs, S, T, r, vix, prices, slip_mult):
     """Same per-leg cost as options_sim._slip, but on the real leg prices."""
     return sum((0.01 + 0.02 * px) * slip_mult + 0.0004 for px in prices)
@@ -191,20 +242,23 @@ def run(out_path: str = "reports/real_options_backtest.md") -> None:
     rows = []
     for t in plan.itertuples():
         e = t.expiry_real.strftime("%Y-%m-%d")
-        ks, kl = bars.get((e, t.K_short)), bars.get((e, t.K_long))
+        K_short, K_long = _nearest(bars, e, t.K_short, t.entry_date), _nearest(bars, e, t.K_long, t.entry_date)
+        ks = bars.get((e, K_short)) if K_short is not None else None
+        kl = bars.get((e, K_long)) if K_long is not None else None
         if ks is None or kl is None or t.entry_date not in ks.index or t.entry_date not in kl.index:
             rows.append({"trade_id": t.trade_id, "entry_date": t.entry_date, "status": "no data"})
             continue
         ps, pl = float(ks[t.entry_date]), float(kl[t.entry_date])
         settle_day = spy.index[spy.index <= t.expiry_real][-1]
         S_T = float(spy[settle_day])
-        width = t.K_short - t.K_long
+        width = K_short - K_long
         row = {"trade_id": t.trade_id, "entry_date": t.entry_date, "exit_date": settle_day, "status": "ok",
+               "short_k": K_short, "long_k": K_long, "plan_short_k": t.K_short, "plan_long_k": t.K_long,
                "short_px": ps, "long_px": pl, "model_ret": t.model_ret}
         for label, mult in (("", 1.0), ("_2x", 2.0), ("_mid", 0.0)):
             credit = ps - pl - _slip(None, None, None, None, None, (ps, pl), mult)
-            intrinsic = max(0.0, t.K_short - S_T) - max(0.0, t.K_long - S_T)
-            exit_cost = _slip(None, None, None, None, None, (max(0.0, t.K_short - S_T), max(0.0, t.K_long - S_T)), mult) if intrinsic > 0 else 0.0
+            intrinsic = max(0.0, K_short - S_T) - max(0.0, K_long - S_T)
+            exit_cost = _slip(None, None, None, None, None, (max(0.0, K_short - S_T), max(0.0, K_long - S_T)), mult) if intrinsic > 0 else 0.0
             risk = width - credit
             row["credit" + label] = credit
             row["ret" + label] = (credit - intrinsic - exit_cost) / risk if risk > 0 else np.nan
@@ -225,20 +279,50 @@ def run(out_path: str = "reports/real_options_backtest.md") -> None:
         "standard monthly expiry nearest 45 DTE, enter weekly only when SPY > 200-day SMA, hold to expiry.\n",
         f"Data: Robinhood daily closes for expired SPY options; {len(ok)} of {len(df)} planned trades priced "
         f"({ok.entry_date.min().date() if len(ok) else '-'} to {ok.exit_date.max().date() if len(ok) else '-'}).\n",
-        "\n| Pricing | Trades | Win rate (95% low) | Avg win / loss | Expectancy | PF | t | Worst | Max DD (5% risk/trade) |\n|---|---|---|---|---|---|---|---|---|\n",
+        "Returns are per dollar of max risk; the equity columns put 5% of equity at risk per trade.\n",
+        "\n| Pricing | Trades | Win rate (95% low) | Avg win / loss | Expectancy | PF | t | Worst | CAGR | Max DD |\n|---|---|---|---|---|---|---|---|---|---|\n",
     ]
     for k, s in stats.items():
         lines.append(
             f"| {k} | {s.n} | {s.win_rate:.1%} (≥{s.win_rate_lo95:.1%}) | {s.avg_win:+.1%} / {s.avg_loss:+.1%} | "
-            f"{s.expectancy:+.2%} | {s.profit_factor:.2f} | {s.t_stat:.2f} | {s.worst_trade:+.0%} | {s.max_drawdown:.1%} |\n"
+            f"{s.expectancy:+.2%} | {s.profit_factor:.2f} | {s.t_stat:.2f} | {s.worst_trade:+.0%} | {s.cagr:+.1%} | {s.max_drawdown:.1%} |\n"
         )
+    # Every real-price trade is out-of-sample (the rules were fixed on 2000-2014
+    # modelled prices), so the pass test applies to this one sample.
+    c, base, stress = Criteria(), stats["Real prices, base costs"], stats["Real prices, 2x costs"]
+    checks = [
+        (f"≥{c.min_trades_total} trades", base.n >= c.min_trades_total, f"{base.n}"),
+        (f"win rate ≥{c.min_win_rate:.0%}", base.win_rate >= c.min_win_rate, f"{base.win_rate:.1%} (95% low {base.win_rate_lo95:.1%})"),
+        (f"mean-trade t ≥{c.min_t:g} and PF > 1", base.t_stat >= c.min_t and base.profit_factor > 1,
+         f"t={base.t_stat:.2f}, PF={base.profit_factor:.2f}"),
+        ("profitable at 2x costs", stress.expectancy > 0, f"{stress.expectancy:+.2%} per trade (t={stress.t_stat:.2f})"),
+    ]
+    lines.append("\n## Pass test (all real-price trades are out-of-sample)\n\n| Requirement | Result | Value |\n|---|---|---|\n")
+    for name, ok_, val in checks:
+        lines.append(f"| {name} | {'pass' if ok_ else 'FAIL'} | {val} |\n")
+    lines.append(f"\n**Overall: {'PASS' if all(x[1] for x in checks) else 'FAIL'}**\n")
     if len(ok):
         ok["year"] = ok.entry_date.dt.year
         yr = ok.groupby("year").agg(trades=("ret", "size"), win=("ret", lambda s: (s > 0).mean()), mean_ret=("ret", "mean"),
                                     model_mean=("model_ret", "mean"))
         lines.append("\n## By entry year (base costs)\n\n| Year | Trades | Win rate | Mean return on risk | Model mean |\n|---|---|---|---|---|\n")
         for y, r in yr.iterrows():
-            lines.append(f"| {y} | {r.trades} | {r.win:.0%} | {r.mean_ret:+.1%} | {r.model_mean:+.1%} |\n")
+            lines.append(f"| {y} | {int(r.trades)} | {r.win:.0%} | {r.mean_ret:+.1%} | {r.model_mean:+.1%} |\n")
+    subst = int((ok.short_k != ok.plan_short_k).sum() + (ok.long_k != ok.plan_long_k).sum()) if len(ok) else 0
+    lines.append(
+        "\n## Caveats\n\n"
+        "- Option prices are Robinhood's daily closing marks, not executable bid/ask quotes; the cost model "
+        "(0.01 + 2% of price per leg per side, doubled in the stress row) stands in for the spread.\n"
+        "- Robinhood's option history starts in late 2017, so this covers ~9 years and one sample only. "
+        "Losses cluster at a few sell-offs (expiries in Q4 2018, Mar 2020, Jan-May 2022, Oct 2023, "
+        "Mar-Apr 2025, Mar 2026) and give back about two-thirds of the gross winnings.\n"
+        "- Expiry is the standard monthly nearest 45 DTE (the model used an exact-45-day expiry), so a few "
+        "trades settle on different dates than in the model; this explains most model/real sign flips.\n"
+        f"- {subst} legs used the nearest listed strike (within $3) because the planned $1 strike was not "
+        "yet listed on the entry day.\n"
+        "- Held to expiry and settled at intrinsic value from SPY's close; early assignment and pin risk "
+        "are not modelled.\n"
+    )
     Path(out_path).write_text("".join(lines))
     print("".join(lines))
 
@@ -252,6 +336,8 @@ if __name__ == "__main__":
         pending(include_partial="--all" in sys.argv)
     elif cmd == "chunk":
         chunk(int(sys.argv[2]))
+    elif cmd == "fallbacks":
+        fallbacks()
     elif cmd == "run":
         run()
     else:

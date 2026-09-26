@@ -111,3 +111,17 @@ def test_index_spike_repair_fixes_bad_bar_but_keeps_real_spike():
     assert len(log) == 1
     assert abs(fixed["close"].iat[2] - 15.35) < 1e-9
     assert fixed["close"].iat[5] == 37.0
+
+
+def test_nearest_strike_requires_a_quote_on_the_entry_day():
+    from tradingbot.research.real_options import _nearest
+
+    d = pd.bdate_range("2024-01-02", periods=5)
+    bars = {
+        ("2024-02-16", 401.0): pd.Series(1.0, index=d[3:]),  # $1 strike listed later
+        ("2024-02-16", 400.0): pd.Series(1.1, index=d),
+        ("2024-02-16", 395.0): pd.Series(0.9, index=d),
+    }
+    assert _nearest(bars, "2024-02-16", 401.0, d[4]) == 401.0
+    assert _nearest(bars, "2024-02-16", 401.0, d[0]) == 400.0  # not listed yet: nearest quoted
+    assert _nearest(bars, "2024-02-16", 390.0, d[0]) is None  # nothing within $3
