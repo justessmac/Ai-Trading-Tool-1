@@ -188,6 +188,8 @@ def simulate(
                 "ret": pnl / risk,
                 "credit": credit,
                 "risk": risk,
+                "expiry": expiry,
+                "strikes": tuple((kind, K, sign) for kind, K, sign in legs),
             }
         )
     return trades
