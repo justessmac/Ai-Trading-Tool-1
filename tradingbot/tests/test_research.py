@@ -84,3 +84,30 @@ def test_options_simulation_runs_on_synthetic_data():
     assert len(trades) > 50
     # A defined-risk spread can never lose more than its max risk (plus exit costs).
     assert trades["ret"].min() > -1.1
+
+
+def test_repair_fixes_bad_run_and_unadjusted_split_but_keeps_real_crash():
+    from tradingbot.research.import_robinhood import repair_price_jumps
+
+    d = _daily(n=300, seed=5)
+    truth = d.copy()
+    d.iloc[100:102, :4] *= 2.0  # bad run quoted at 2x, snaps back
+    d.iloc[:200, :4] *= 4.0  # unadjusted 1:4 reverse split on bar 200 (4x before)
+    d.iloc[250:, :4] *= 0.8  # genuine -20% crash that persists: must be kept
+    truth.iloc[250:, :4] *= 0.8
+    fixed, log = repair_price_jumps(d)
+    assert len(log) == 2
+    ratio = (fixed["close"] / truth["close"]).round(6)
+    assert ratio.nunique() == 1  # returns identical to the truth everywhere
+
+
+def test_index_spike_repair_fixes_bad_bar_but_keeps_real_spike():
+    from tradingbot.research.import_robinhood import repair_index_spikes
+
+    idx = pd.bdate_range("2020-01-01", periods=8)
+    close = [15.0, 15.5, 60.0, 15.2, 15.0, 37.0, 30.0, 25.0]  # bad bar, then a real decaying spike
+    df = pd.DataFrame({"open": close, "high": close, "low": close, "close": close}, index=idx)
+    fixed, log = repair_index_spikes(df)
+    assert len(log) == 1
+    assert abs(fixed["close"].iat[2] - 15.35) < 1e-9
+    assert fixed["close"].iat[5] == 37.0

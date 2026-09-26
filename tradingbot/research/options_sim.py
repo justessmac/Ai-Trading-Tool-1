@@ -25,6 +25,19 @@ from scipy.special import ndtr
 
 DIV_YIELD = 0.015
 
+# Approximate annual-average 3-month T-bill yields (public Fed H.15 series,
+# rounded; 2025-26 estimated). Used when no daily rate series is available.
+APPROX_TBILL = {
+    2000: 5.8, 2001: 3.4, 2002: 1.6, 2003: 1.0, 2004: 1.4, 2005: 3.2, 2006: 4.7, 2007: 4.4,
+    2008: 1.4, 2009: 0.15, 2010: 0.14, 2011: 0.05, 2012: 0.09, 2013: 0.06, 2014: 0.03,
+    2015: 0.05, 2016: 0.32, 2017: 0.93, 2018: 1.94, 2019: 2.06, 2020: 0.37, 2021: 0.05,
+    2022: 2.02, 2023: 5.07, 2024: 4.97, 2025: 4.1, 2026: 3.7,
+}
+
+
+def approx_rates(index: pd.DatetimeIndex) -> pd.Series:
+    return pd.Series([APPROX_TBILL.get(d.year, 2.0) / 100.0 for d in index], index=index)
+
 
 def bs_price(S, K, T, r, q, sigma, kind):
     S, K, T, sigma = map(np.asarray, (S, K, T, sigma))

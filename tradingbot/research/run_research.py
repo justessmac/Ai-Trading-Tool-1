@@ -186,7 +186,11 @@ def main() -> None:
     args = ap.parse_args()
     split = pd.Timestamp(args.split)
 
-    rows, notes = [], []
+    rows, notes = [], [
+        "\nData: Robinhood daily bars via the Robinhood MCP connector (split-adjusted, NOT dividend-adjusted; "
+        "split artefacts repaired by `import_robinhood.repair_price_jumps`). Missing dividends bias ETF "
+        "mean-reversion returns slightly downward.\n"
+    ]
     etfs = load_many(ETF_UNIVERSE)
     notes.append(f"\nETF universe loaded: {', '.join(etfs)} (cost {ETF_COST:.2%}/side, 10% of equity per trade).\n")
     rows += [dict(r, family="etf_" + r["family"]) for r in run_mean_reversion(etfs, ETF_COST, split, 0.10)]
@@ -203,11 +207,14 @@ def main() -> None:
     if not args.skip_options:
         spy_raw = load_daily("SPY", adjusted=False)
         vix = load_daily("^VIX")["close"]
+        spy_raw = spy_raw.loc[vix.index.min():]
+        vix = vix.reindex(spy_raw.index).ffill()
         try:
             rates = load_daily("^IRX")["close"] / 100.0
+            rates = rates.reindex(spy_raw.index).ffill().fillna(0.02)
         except RuntimeError:
-            rates = pd.Series(0.02, index=spy_raw.index)
-        rates = rates.reindex(spy_raw.index).ffill().fillna(0.02)
+            rates = opt.approx_rates(spy_raw.index)
+            notes.append("\nRisk-free rate: approximate annual T-bill averages (no daily ^IRX series available).\n")
         notes.append(
             "\nOptions: SPY, weekly entries, Black-Scholes with VIX-based vol + put skew (NOT real option quotes); "
             "returns are per dollar of max risk (strike cash for CSPs); portfolio curves put 5% of equity at risk per trade.\n"
