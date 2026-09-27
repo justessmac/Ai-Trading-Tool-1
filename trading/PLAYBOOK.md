@@ -14,7 +14,10 @@ data: CAGR +8.2%, max drawdown −19% (buy & hold: +8.0%, −55%), ~2 switches/y
   SPY (fractional, dollar-based market buys; keep ~$2 cash buffer).
 - If SPY < SMA × 0.98 → sell all SPY, SPY sleeve holds cash.
 - Between the bands → do nothing (keeps the current state).
-- Cash the user adds themselves: invest it only while the signal is "in".
+- Cash the user adds themselves: all targets are % of total account value,
+  so new money is deployed by the next daily check wherever signals are in
+  (cash otherwise). Log each detected deposit in trading/deposits.csv so
+  performance is measured separately from contributions.
 
 ## Strategy 2: Bitcoin trend sleeve via IBIT (adopted 2026-09-27, user asked for crypto)
 Traded through IBIT (iShares spot Bitcoin ETF) as a regular fractional stock
