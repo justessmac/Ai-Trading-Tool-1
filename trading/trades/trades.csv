@@ -1,1 +1,2 @@
 timestamp_et,order_id,symbol,side,quantity,avg_fill_price,dollar_amount,sleeve,reason,signal_values,account_value_after,state
+2026-09-27 00:28:53,6ab89b84-0cb5-428d-8d82-b5f07e961737,BTC,buy,0.00001173,85224.84,1.00,test,user-requested $1 live test of the order pipeline,n/a,250.00,filled
