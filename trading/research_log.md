@@ -7,3 +7,4 @@
 | 2026-09-27 | SPY 30/5-delta put spread | 88% win (model) | 86% win, +3.4%/trade on real prices | needs ~$47k+; parked |
 | 2026-09-27 | Bitcoin trend via GBTC→IBIT: SMA 50/100/200 × band 0/5% (6 configs) | SMA100 5%: CAGR +59%, DD −50% (B&H +37%, −77%) | CAGR +41%, DD −26% (B&H +14%, −77%) | adopted as 30% sleeve (combined 70/30: CAGR +24%, DD −24%) |
 | 2026-09-27 | Bitcoin crash protection: trailing stop 15/20/25%, vol target 40/60/80%, fast SMA20 exit | stops & fast exit best IS | stops & fast exit worse OOS; vol target 40% cuts worst week −24%→−13% | adopted 50/50 split with vol target 40% (CAGR +21%, DD −20%, 2022+ CAGR +20%); weight chosen after seeing 2022+ data (mild selection bias) |
+| 2026-09-27 | Bitcoin swing rules: RSI2 pullback (4), Donchian breakout (2), 3-down-day (2) | RSI2<10 & >SMA100 best (t 3.0) | 20 trades, 70% win, +2.5%/trade, t 2.0 | adopted as half of the Bitcoin sleeve (hybrid OOS CAGR +23%, DD −14% vs trend +30%, −25%) |

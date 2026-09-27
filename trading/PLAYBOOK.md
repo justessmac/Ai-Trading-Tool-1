@@ -23,15 +23,23 @@ Backtest (GBTC 2017–2023 chained to IBIT 2024+, 0.1% cost per switch):
 100-day SMA with a 5% band. Chosen on 2018–2021 (CAGR +59%, max DD −50% vs
 buy & hold +37%, −77%); confirmed on 2022–2026 unseen data (CAGR +41%,
 max DD −26% vs buy & hold +14%, −77%). ~3 switches/yr.
-- Target split (updated 2026-09-27 for crash protection): 50% SPY sleeve /
-  50% IBIT sleeve, with the IBIT sleeve volatility-scaled:
-  IBIT exposure = 50% of account × min(1, 0.40 / vol20), where vol20 is the
-  annualised standard deviation of IBIT's last 20 daily returns. When
-  Bitcoin gets violent, exposure shrinks automatically; the rest is cash.
-  Backtest 2018-04..2026-09 (monthly rebalance): CAGR +21.3%, max DD −20.4%,
-  worst week −11.7%; 2022+ unseen: CAGR +20.3%, DD −13.6%. (Previous 70/30
-  without scaling: CAGR +24.0%, max DD −23.9%, worst week −14.2%; 2022+
-  CAGR +19.1%, DD −13.1%.)
+- Target split (updated 2026-09-27, user asked for swing trading): 50% SPY
+  sleeve / 50% Bitcoin sleeve. The Bitcoin sleeve is split in two halves,
+  both traded in IBIT and tracked separately in trading/state.json:
+  * IBIT trend half (25% of account): when the IBIT trend signal is in,
+    hold 25% of account × min(1, 0.40 / vol20) in IBIT (vol20 = annualised
+    stdev of IBIT's last 20 daily returns); out → 0.
+  * IBIT swing half (25% of account): BUY 25% of account in IBIT when
+    RSI(2) of IBIT daily closes < 10 AND IBIT > its 100-day SMA; SELL that
+    swing position when RSI(2) > 70 or after 10 trading days, whichever
+    first. Otherwise this half holds cash.
+  Swing rule chosen on 2018–2021 (17 trades, 82% win, +4.2%/trade, t=3.0),
+  confirmed on 2022–2026 (20 trades, 70% win, +2.5%/trade, t=2.0; avg hold
+  ~7 days; in the market ~8% of the time). Bitcoin-sleeve backtest (IS | OOS):
+  trend only CAGR +28%/DD −29% | +30%/−25%; swing only +25%/−15% | +14%/−12%;
+  50/50 hybrid +28%/−14% | +23%/−14%. The hybrid gives up some upside for
+  roughly half the drawdown. Only ~37 swing trades in total: thin evidence,
+  re-check in monthly reviews.
 - Adjust the IBIT position only when its target differs from the current
   position by more than 5 points of the account (limits churn); full exits
   on the trend signal always execute.
