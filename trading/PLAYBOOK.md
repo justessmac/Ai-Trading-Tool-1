@@ -10,7 +10,7 @@ data: CAGR +8.2%, max drawdown −19% (buy & hold: +8.0%, −55%), ~2 switches/y
 
 - Signal checked each weekday at ~15:48 ET using the live SPY price vs the
   200-day SMA of daily closes (unadjusted).
-- If SPY > SMA × 1.02 → SPY sleeve (70% of the account, see Strategy 2) in
+- If SPY > SMA × 1.02 → SPY sleeve (50% of the account, see Strategy 2) in
   SPY (fractional, dollar-based market buys; keep ~$2 cash buffer).
 - If SPY < SMA × 0.98 → sell all SPY, SPY sleeve holds cash.
 - Between the bands → do nothing (keeps the current state).
@@ -23,12 +23,24 @@ Backtest (GBTC 2017–2023 chained to IBIT 2024+, 0.1% cost per switch):
 100-day SMA with a 5% band. Chosen on 2018–2021 (CAGR +59%, max DD −50% vs
 buy & hold +37%, −77%); confirmed on 2022–2026 unseen data (CAGR +41%,
 max DD −26% vs buy & hold +14%, −77%). ~3 switches/yr.
-- Target split: 70% SPY sleeve / 30% IBIT sleeve (backtest 2018–2026 of the
-  combined rules, monthly rebalance: CAGR +24%, max DD −24%, worst year −10%).
-- IBIT signal each check: IBIT > 100-day SMA × 1.05 → IBIT sleeve in IBIT;
-  < SMA × 0.95 → IBIT sleeve in cash; between → keep state.
+- Target split (updated 2026-09-27 for crash protection): 50% SPY sleeve /
+  50% IBIT sleeve, with the IBIT sleeve volatility-scaled:
+  IBIT exposure = 50% of account × min(1, 0.40 / vol20), where vol20 is the
+  annualised standard deviation of IBIT's last 20 daily returns. When
+  Bitcoin gets violent, exposure shrinks automatically; the rest is cash.
+  Backtest 2018-04..2026-09 (monthly rebalance): CAGR +21.3%, max DD −20.4%,
+  worst week −11.7%; 2022+ unseen: CAGR +20.3%, DD −13.6%. (Previous 70/30
+  without scaling: CAGR +24.0%, max DD −23.9%, worst week −14.2%; 2022+
+  CAGR +19.1%, DD −13.1%.)
+- Adjust the IBIT position only when its target differs from the current
+  position by more than 5 points of the account (limits churn); full exits
+  on the trend signal always execute.
+- Rejected for crash protection (failed on 2022–2026 unseen data): trailing
+  stops of 15/20/25% and a fast exit below the 20-day SMA.
+- IBIT trades only on weekdays; Bitcoin moves 24/7, so weekend crashes show
+  up as a Monday gap that no rule here can avoid.
 - Each sleeve follows only its own signal; a sleeve that is "out" holds cash.
-- Rebalance to 70/30 (of total account value) at the first check of each
+- Rebalance the SPY sleeve to 50% (of total account value) at the first check of each
   month, and only if a sleeve is off target by more than 5 points of the
   account.
 - Caveats: only ~8 years of Bitcoin history (a strong era for crypto); GBTC's
