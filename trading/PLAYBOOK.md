@@ -26,7 +26,7 @@ data: CAGR +8.2%, max drawdown −19% (buy & hold: +8.0%, −55%), ~2 switches/y
 - If an order fails or anything looks wrong, do nothing and tell the user.
 
 ## Improvement process (goal: maximise long-run growth without risk of ruin)
-Monthly review (first Saturday):
+Monthly review (1st of each month):
 1. Compare live results with what the backtest predicted; log the gap and why.
 2. Research and backtest ONE candidate improvement (e.g. QQQ vs SPY
    momentum rotation, dual momentum, volatility-scaled exposure, adding
