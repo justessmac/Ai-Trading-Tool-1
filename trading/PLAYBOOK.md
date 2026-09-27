@@ -14,9 +14,11 @@ data: CAGR +8.2%, max drawdown −19% (buy & hold: +8.0%, −55%), ~2 switches/y
   of available buying power minus $2).
 - If SPY < SMA × 0.98 → sell all SPY, hold cash.
 - Between the bands → do nothing (keeps the current state).
-- New deposits: invest them only while the signal is "in".
+- Cash the user adds themselves: invest it only while the signal is "in".
 
 ## Hard rules
+- Never deposit to or withdraw from this account, or move money in or out
+  of it in any way (user's standing instruction, 2026-09-27).
 - No options, no margin, no leverage, no shorting, no other symbols, no
   discretionary trades. Changing these requires the user's say-so.
 - Any rule change must first pass a backtest on data it was not tuned on and
