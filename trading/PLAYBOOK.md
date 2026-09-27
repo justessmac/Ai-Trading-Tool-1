@@ -25,5 +25,20 @@ data: CAGR +8.2%, max drawdown −19% (buy & hold: +8.0%, −55%), ~2 switches/y
   be written here with the evidence.
 - If an order fails or anything looks wrong, do nothing and tell the user.
 
+## Improvement process (goal: maximise long-run growth without risk of ruin)
+Monthly review (first Saturday):
+1. Compare live results with what the backtest predicted; log the gap and why.
+2. Research and backtest ONE candidate improvement (e.g. QQQ vs SPY
+   momentum rotation, dual momentum, volatility-scaled exposure, adding
+   cash yield via SGOV when out of the market).
+3. Adopt it only if ALL hold: tested on 2000–2014, confirmed on 2015+ data it
+   was not tuned on; higher CAGR on both; max drawdown no worse than −25%;
+   no leverage, options, margin or shorting; fewer than ~12 trades a year.
+4. Write the result here (adopted or rejected, with numbers) and in
+   `trading/research_log.md`; tell the user and send a phone alert if the
+   rules change.
+Losses from following the rules are expected and are not a reason to change
+them; only evidence from step 3 is.
+
 ## Journal
 See `trading/journal.md` (one line per check that trades or changes state).
