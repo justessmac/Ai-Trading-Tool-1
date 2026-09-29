@@ -57,6 +57,21 @@ max DD −26% vs buy & hold +14%, −77%). ~3 switches/yr.
 - Caveats: only ~8 years of Bitcoin history (a strong era for crypto); GBTC's
   premium/discount adds noise before 2024.
 
+## Strategy 3: SPY dip-buy swing (adopted 2026-09-29, user asked for buy-red/sell-green)
+Uses idle cash only (cash not needed by the targets above), capped at 20% of
+the account, tracked in trading/state.json as "spy_dip".
+- BUY when SPY's RSI(2) (Wilder, daily closes incl. today's live price) < 10
+  AND SPY > its 200-day SMA; size = min(20% of account, idle cash − $2).
+- SELL that dip position when RSI(2) > 70 or after 10 trading days.
+- If the Bitcoin swing signal fires while cash is tied up here, the Bitcoin
+  swing uses what cash is left (it does not force a sale here).
+Backtest (SPY, 0.03% cost/side, next-day fills): chosen on 2001–2014 (81
+trades, 79% win, +0.55%/trade, t 2.5); confirmed 2015–2026 (98 trades, 68%
+win, +0.36%/trade, t 2.2, ~6-day holds, ~9 trades/yr). Small edge per trade:
+expected to add roughly +0.5–1%/yr to the account at 20% size.
+Core trend positions are never averaged down (no adding to losers outside
+these rules).
+
 ## Hard rules
 - Never deposit to or withdraw from this account, or move money in or out
   of it in any way (user's standing instruction, 2026-09-27).

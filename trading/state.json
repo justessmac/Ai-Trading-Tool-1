@@ -1,3 +1,14 @@
 {
-  "ibit_swing": {"open": false, "entry_date": null, "shares": 0, "entry_price": null}
+  "ibit_swing": {
+    "open": false,
+    "entry_date": null,
+    "shares": 0,
+    "entry_price": null
+  },
+  "spy_dip": {
+    "open": false,
+    "entry_date": null,
+    "shares": 0,
+    "entry_price": null
+  }
 }
