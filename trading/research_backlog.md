@@ -4,6 +4,8 @@ Status: todo / testing / adopted / rejected (see research_log.md for results)
 
 | # | Idea | Why it might help | Status |
 |---|---|---|---|
+| 0a | Stocks-in-play day trading (Zarattini, Barbon & Aziz 2024): each morning pick stocks with the highest relative volume (incl. lower-priced names gaining attention via Robinhood scans), trade the 5-minute opening-range breakout, stop at the range, exit by close. Test on Robinhood 5-min bars (Feb 2026+) for a broad universe, with spread costs | published evidence for a daily intraday edge on 'stocks in play' | todo |
+| 0b | Options: SPY $1-wide call debit spread (~30 DTE) on the SPY dip-buy signal instead of shares; test on REAL SPY call prices | leverages a tested edge with defined max loss (~$40–60) | todo |
 | 1 | Cash yield: hold idle cash in SGOV (T-bill ETF) instead of cash | ~4% on idle cash, near-zero risk | todo |
 | 2 | QQQ vs SPY: 3–6-month momentum picks which one the core holds | Nasdaq led most of 2010–2026 | todo |
 | 3 | SPY dip-buy: add IWM/QQQ as extra dip candidates | more dip trades per year | todo |
