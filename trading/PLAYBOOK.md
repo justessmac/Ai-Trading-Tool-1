@@ -112,8 +112,11 @@ these rules).
 Daily research (weekdays after the close) + monthly deep review (1st of each month):
 0. Daily: check today's fills vs expected prices (slippage), data sanity, and any
    rule-following mistakes; then test ONE item from trading/research_backlog.md
-   (or a new idea added there) and log the result. At most ONE rule change per
-   calendar week, so each change's effect can be measured.
+   (or a new idea added there) and log the result. Multiple rule changes per
+   week are allowed (user, 2026-09-29): every change must pass the adoption
+   test on its own, gets its own dated log entry and phone alert, and each
+   strategy's trades are tagged by sleeve so its live effect can be measured
+   separately. Don't change the same strategy twice in one week.
 1. Compare live results with what the backtest predicted; log the gap and why.
 2. Research and backtest ONE candidate improvement (e.g. QQQ vs SPY
    momentum rotation, dual momentum, volatility-scaled exposure, adding
