@@ -4,7 +4,7 @@ Status: todo / testing / adopted / rejected (see research_log.md for results)
 
 | # | Idea | Why it might help | Status |
 |---|---|---|---|
-| 0b | Options (Setup A in reports/Buying calls and puts small account.md; also B–D there queued after): SPY $1-wide call debit spread (~30 DTE) on the SPY dip-buy signal instead of shares; test on REAL SPY call prices | leverages a tested edge with defined max loss (~$40–60) | todo |
+| 0b | Options (Setup A in reports/Buying calls and puts small account.md; also B–D there queued after): SPY $1-wide call debit spread (~30 DTE) on the SPY dip-buy signal instead of shares; test on REAL SPY call prices | leverages a tested edge with defined max loss (~$40–60) | REJECTED 2026-09-29: 74 trades, after costs −7.6%/trade (t −2.1); positive only at mid prices (+4.6%, t 1.2). See reports/options_setup_a_backtest.md. Next: Setup B (pre-earnings straddle) |
 | 0a | Stocks-in-play day trading (Zarattini, Barbon & Aziz 2024): each morning pick stocks with the highest relative volume (incl. lower-priced names gaining attention via Robinhood scans), trade the 5-minute opening-range breakout, stop at the range, exit by close. Test on Robinhood 5-min bars (Feb 2026+) for a broad universe, with spread costs | published evidence for a daily intraday edge on 'stocks in play' | todo |
 | 1 | Cash yield: hold idle cash in SGOV (T-bill ETF) instead of cash | ~4% on idle cash, near-zero risk | todo |
 | 2 | QQQ vs SPY: 3–6-month momentum picks which one the core holds | Nasdaq led most of 2010–2026 | todo |

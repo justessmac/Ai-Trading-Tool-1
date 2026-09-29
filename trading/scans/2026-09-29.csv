@@ -1,0 +1,8 @@
+date,source,ticker,note,action
+2026-09-29,StockTwits trending,TTD,top trending,lead only: no adopted strategy covers single stocks
+2026-09-29,StockTwits trending + WSB,MU,JPMorgan note: beat-and-raise into Q4 results,lead: candidate for options Setup B (pre-earnings straddle) test; no trade
+2026-09-29,StockTwits trending,GME,meme flow,lead only; red flags (pump pattern) - no trade
+2026-09-29,StockTwits trending,ASTS;RKLB;ACHR,space/eVTOL momentum names,lead only
+2026-09-29,StockTwits trending,TSLA;RIVN;XPEV,EV names,lead only
+2026-09-29,WSB,market,"S&P 500 breadth lowest since dot-com (narrow leadership)",context: core SPY rule unaffected (SPY +6% above SMA200)
+2026-09-29,WSB,IPO,Anthropic IPO filing reported,lead for IPO study (backlog 7); not tradable until listed
