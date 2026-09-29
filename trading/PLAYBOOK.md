@@ -82,7 +82,11 @@ these rules).
 - If an order fails or anything looks wrong, do nothing and tell the user.
 
 ## Improvement process (goal: maximise long-run growth without risk of ruin)
-Monthly review (1st of each month):
+Daily research (weekdays after the close) + monthly deep review (1st of each month):
+0. Daily: check today's fills vs expected prices (slippage), data sanity, and any
+   rule-following mistakes; then test ONE item from trading/research_backlog.md
+   (or a new idea added there) and log the result. At most ONE rule change per
+   calendar week, so each change's effect can be measured.
 1. Compare live results with what the backtest predicted; log the gap and why.
 2. Research and backtest ONE candidate improvement (e.g. QQQ vs SPY
    momentum rotation, dual momentum, volatility-scaled exposure, adding
