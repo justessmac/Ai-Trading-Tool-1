@@ -88,6 +88,22 @@ these rules).
 - Symbols: SPY and IBIT for the core strategies; other US stocks/ETFs only
   through a strategy that passed the adoption test (e.g. a stocks-in-play
   day-trading rule), with the per-trade risk limits that strategy defines.
+- Never copy trades. A ticker being hyped on Reddit/X/StockTwits, or someone
+  else's trade, is only a lead. Before ANY trade in a non-core name the bot
+  must (a) have a signal from an adopted, backtested strategy, and (b) write
+  its own research note to trading/research_notes/YYYY-MM-DD_<TICKER>.md
+  covering: the catalyst verified from a primary source (SEC filing, company
+  press release, earnings report) or reputable news, not social posts;
+  liquidity (volume, bid-ask spread, float); recent price/volume behaviour;
+  red flags (dilution/offerings, reverse splits, pump patterns, halts,
+  going-concern notes); planned entry, stop, exit and max loss. No note, no
+  trade.
+- Moving focus to a new strategy: if a newly adopted strategy (e.g. stocks-in-
+  play day trading) beats the existing strategies on risk-adjusted return in
+  its backtest AND over at least 30 live trades, the monthly review may shift
+  more of the account to it, in steps of at most 25% of the account per
+  month, keeping the drawdown limits. It never takes the whole account at
+  once.
 - Any rule change must first pass a backtest on data it was not tuned on and
   be written here with the evidence.
 - If an order fails or anything looks wrong, do nothing and tell the user.
