@@ -75,8 +75,19 @@ these rules).
 ## Hard rules
 - Never deposit to or withdraw from this account, or move money in or out
   of it in any way (user's standing instruction, 2026-09-27).
-- No options, no margin, no leverage, no shorting, no symbols other than SPY and IBIT, no
-  discretionary trades. Changing these requires the user's say-so.
+- No margin, no leverage, no shorting stock, no discretionary trades.
+  Changing these requires the user's say-so.
+- Options: ALLOWED by the user on 2026-09-29, only as follows:
+  - only a setup that has passed the adoption test on REAL historical option
+    prices (Robinhood option historicals), after costs;
+  - defined risk only: bought calls/puts or debit/credit spreads with a
+    known max loss; never naked short options;
+  - max loss per options trade ≤ 20% of the account; total options risk
+    open ≤ 30% of the account;
+  - every options order is recorded like any other trade and alerted.
+- Symbols: SPY and IBIT for the core strategies; other US stocks/ETFs only
+  through a strategy that passed the adoption test (e.g. a stocks-in-play
+  day-trading rule), with the per-trade risk limits that strategy defines.
 - Any rule change must first pass a backtest on data it was not tuned on and
   be written here with the evidence.
 - If an order fails or anything looks wrong, do nothing and tell the user.
