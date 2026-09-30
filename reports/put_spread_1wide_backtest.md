@@ -1,49 +1,45 @@
 # SPY $1-wide put credit spread on real option prices
 
-Date: 2026-09-30. Verdict: **rejected** (fails the adoption test after costs).
+Date: 2026-09-30 (re-run with 21 contracts that were missing from the first run). Verdict: **rejected**.
 
 Rule (unchanged from the tested wide put spread, nothing tuned): each week, only when SPY > 200-day SMA,
 sell the ~30-delta put in the standard monthly expiry nearest 45 DTE and buy the put $1 lower; hold to expiry.
-Max loss per spread ~$80, so it fits a $750 account (limit: 20% per trade, 30% total).
-Prices: Robinhood daily marks for the exact contracts (654 SPY puts). Costs: flat slippage from the mark
-per leg per side plus $0.04/contract/side fees; the % model row is the old wide-spread model (too harsh here).
+Max loss ~$80 per spread. Prices: Robinhood daily marks for the exact contracts. Costs: flat slippage from the
+mark per leg per side plus $0.04/contract/side fees; the % model row is the old wide-spread model (too harsh here).
 
 ## Verdict
-- Win rate is high (86%) as expected, but the average credit is only ~$17-21 against ~$80 of risk:
-  one loss wipes out ~5 wins.
-- At realistic costs ($0.02/leg) the edge is +6.1%/trade in 2017-2021 but only +1.8% (t 0.5) in 2022-2026;
-  at $0.04/leg it is negative. Only the no-slippage "mid" case is clearly positive (+7.8%, t 2.1 OOS).
-- On a $750 account within the playbook limits: +4.5%/yr with a -40% drawdown (base costs), worse than
-  just holding SPY, and the drawdown breaks the -25% limit.
-- Same lesson as the call-spread test: on $1-wide spreads the bid-ask costs eat most of the premium.
-  The wide version (30/5 delta, +3.4%/trade on real prices) still works, but it needs ~$47k.
-- Next: re-test with $5-wide spreads (credit ~5x larger vs the same per-leg cost) once the account can
-  hold a ~$400 max loss within the 20% rule (~$2,000 account).
+- 85% win rate, but the average credit is only ~$17 against ~$80 of risk: one loss wipes out ~5 wins.
+- After $0.02/leg costs: +4.0%/trade in 2017-2021 (t 1.3) and +0.6%/trade in 2022-2026 (t 0.2); negative at
+  $0.04/leg. Only the no-slippage "mid" case is clearly positive.
+- The bid-ask cost per leg is about the same for $1 and $5 spreads, so on $1 spreads it eats most of the
+  premium. See reports/put_spread_5wide_backtest.md for the $5 version.
 
-318 of 352 planned weekly trades priced (2017-11-02 to 2026-09-18). Returns are per dollar of max risk (width - credit).
+339 of 352 planned weekly trades priced (2017-11-02 to 2026-09-18). Returns are per dollar of max risk (width - credit).
 
 | Period | Costs | Trades | Win rate | Avg credit | Avg win / loss | Expectancy | t | Worst |
 |---|---|---|---|---|---|---|---|---|
-| 2017-2021 (IS) | base ($0.02/leg) | 164 | 87.8% | $16 | +19.7% / -91.8% | +6.08% | 2.03 | -105% |
-| 2017-2021 (IS) | 2x ($0.04/leg) | 164 | 86.6% | $12 | +14.4% / -88.1% | +0.68% | 0.23 | -110% |
-| 2017-2021 (IS) | mid (fees only) | 164 | 88.4% | $20 | +25.6% / -91.3% | +12.03% | 3.97 | -100% |
-| 2017-2021 (IS) | % model | 164 | 52.4% | $2 | +7.3% / -55.0% | -22.33% | -3.30 | -529% |
-| 2022-2026 (OOS) | base ($0.02/leg) | 154 | 84.4% | $18 | +21.4% / -104.2% | +1.83% | 0.50 | -105% |
-| 2022-2026 (OOS) | 2x ($0.04/leg) | 154 | 84.4% | $14 | +15.8% / -108.6% | -3.62% | -0.99 | -110% |
-| 2022-2026 (OOS) | mid (fees only) | 154 | 84.4% | $22 | +27.6% / -99.2% | +7.83% | 2.10 | -100% |
-| 2022-2026 (OOS) | % model | 154 | 28.6% | $-4 | +4.1% / -46.3% | -31.91% | -5.59 | -361% |
-| All | base ($0.02/leg) | 318 | 86.2% | $17 | +20.5% / -98.6% | +4.02% | 1.70 | -105% |
-| All | 2x ($0.04/leg) | 318 | 85.5% | $13 | +15.1% / -98.8% | -1.40% | -0.60 | -110% |
-| All | mid (fees only) | 318 | 86.5% | $21 | +26.5% / -95.7% | +10.00% | 4.19 | -100% |
-| All | % model | 318 | 40.9% | $-1 | +6.2% / -49.9% | -26.97% | -6.05 | -529% |
+| 2017-2021 (IS) | base ($0.02/leg) | 182 | 86.3% | $16 | +19.7% / -94.4% | +4.03% | 1.32 | -105% |
+| 2017-2021 (IS) | 2x ($0.04/leg) | 182 | 85.2% | $12 | +14.4% / -92.0% | -1.36% | -0.45 | -110% |
+| 2017-2021 (IS) | mid (fees only) | 182 | 86.8% | $20 | +25.6% / -93.1% | +9.96% | 3.23 | -100% |
+| 2017-2021 (IS) | % model | 182 | 48.4% | $2 | +7.5% / -55.0% | -24.80% | -3.89 | -529% |
+| 2022-2026 (OOS) | base ($0.02/leg) | 157 | 83.4% | $18 | +21.4% / -104.2% | +0.60% | 0.16 | -105% |
+| 2022-2026 (OOS) | 2x ($0.04/leg) | 157 | 83.4% | $14 | +15.8% / -108.7% | -4.83% | -1.30 | -110% |
+| 2022-2026 (OOS) | mid (fees only) | 157 | 83.4% | $22 | +27.6% / -99.3% | +6.59% | 1.74 | -100% |
+| 2022-2026 (OOS) | % model | 157 | 28.0% | $-4 | +4.1% / -48.2% | -33.51% | -5.84 | -361% |
+| All | base ($0.02/leg) | 339 | 85.0% | $17 | +20.5% / -99.4% | +2.44% | 1.03 | -105% |
+| All | 2x ($0.04/leg) | 339 | 84.4% | $13 | +15.0% / -100.2% | -2.96% | -1.26 | -110% |
+| All | mid (fees only) | 339 | 85.3% | $21 | +26.5% / -96.3% | +8.40% | 3.49 | -100% |
+| All | % model | 339 | 38.9% | $-1 | +6.3% / -51.3% | -28.84% | -6.66 | -529% |
 
 ## $750 account, 1-lot spreads within the playbook limits (max loss/trade <= 20%, total <= 30%)
 
+Same period, SPY buy and hold (with dividends): CAGR +13.0%, max drawdown -34.1%.
+
 | Costs | Spreads taken | End equity | CAGR | Max drawdown |
 |---|---|---|---|---|
-| base ($0.02/leg) | 119 | $1,108 | +4.5% | -40.2% |
-| 2x ($0.04/leg) | 57 | $400 | -6.9% | -50.3% |
-| mid (fees only) | 141 | $1,610 | +9.0% | -34.2% |
+| base ($0.02/leg) | 125 | $1,007 | +3.4% | -51.9% |
+| 2x ($0.04/leg) | 57 | $370 | -7.8% | -55.4% |
+| mid (fees only) | 140 | $1,392 | +7.2% | -46.8% |
 | % model | 23 | $31 | -30.4% | -96.0% |
 
 ## By entry year (base costs, 1 spread per week, no sizing limits)
@@ -54,8 +50,8 @@ per leg per side plus $0.04/contract/side fees; the % model row is the old wide-
 | 2018 | 42 | 71% | -13.1% | -462 |
 | 2019 | 44 | 93% | +15.2% | +542 |
 | 2020 | 37 | 86% | +4.3% | +122 |
-| 2021 | 33 | 100% | +17.9% | +498 |
-| 2022 | 2 | 0% | -104.9% | -173 |
+| 2021 | 51 | 90% | +6.4% | +259 |
+| 2022 | 5 | 20% | -79.3% | -329 |
 | 2023 | 42 | 79% | -4.4% | -141 |
 | 2024 | 48 | 94% | +14.1% | +560 |
 | 2025 | 35 | 83% | -1.5% | -46 |
