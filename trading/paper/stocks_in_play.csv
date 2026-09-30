@@ -1,0 +1,4 @@
+date,ticker,direction,entered,entry_time_et,entry,stop,exit,r_multiple,pct_return,reason
+2026-09-30,LGHL,short,yes,09:50,5.8021,6.63,4.95,1.02,14.59,no trades at 15:55; exit at the 15:45 bar's close
+2026-09-30,VBIO,short,yes,09:35,3.7882,4.39,2.8098,1.62,25.73,exit 15:55 open
+2026-09-30,BIYA,short,yes,10:20,2.2988,2.47,1.995,1.76,13.12,exit 15:55 open; OR high broken first at 09:40
