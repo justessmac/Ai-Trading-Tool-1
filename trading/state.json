@@ -16,5 +16,12 @@
     "entry_date": null,
     "shares": 0,
     "entry_price": null
+  },
+  "core_rotation": {
+    "phase": 1,
+    "rotation_share_of_account": 0.25,
+    "pick": null,
+    "pick_month": null,
+    "in_market": null
   }
 }

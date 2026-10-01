@@ -19,6 +19,24 @@ data: CAGR +8.2%, max drawdown −19% (buy & hold: +8.0%, −55%), ~2 switches/y
   (cash otherwise). Log each detected deposit in trading/deposits.csv so
   performance is measured separately from contributions.
 
+## Strategy 1b: SPY/QQQ momentum rotation for the core (adopted 2026-10-01, phased in)
+The 50% SPY sleeve is split in two halves, tracked in trading/state.json as "core_rotation":
+- SPY trend half (25% of account): the Strategy 1 rule above, unchanged.
+- Rotation half (25% of account): at the first check of each month, pick
+  whichever of SPY/QQQ has the higher 126-trading-day return (daily closes).
+  Hold the pick (checked daily) only while it is above its own 200-day SMA
+  (2% band, same hysteresis as Strategy 1) AND its 126-day return is > 0;
+  otherwise this half holds cash. A pick change mid-month waits for the next
+  month's first check, unless the filter forces cash.
+- Step 2: from the first check of November 2026, if the October phase-in had
+  no execution problems, the whole 50% core sleeve follows the rotation rule
+  and the SPY trend half is retired. Log the switch and alert the user.
+Backtest (adjusted closes, 0.03%/side, next-day returns): chosen on 2000–2014
+out of 6 rotation variants (+7.3%/yr, max DD −23.5% vs the SPY rule's +5.0%,
+−21.7%); confirmed 2015–2026 (+10.6%/yr, −24.5% vs +8.0%, −20.9%); ~5
+switches/yr. Drawdown is close to the −25% limit and the gain leans on QQQ's
+tech run after 2015. Report: reports/core_rotation_backtest.md.
+
 ## Strategy 2: Bitcoin trend sleeve via IBIT (adopted 2026-09-27, user asked for crypto)
 Traded through IBIT (iShares spot Bitcoin ETF) as a regular fractional stock
 order: same hours and tools as SPY, and Robinhood has daily history for it.
