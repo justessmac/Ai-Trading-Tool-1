@@ -1,5 +1,31 @@
 # Live playbook: Agentic account (••••0819)
 
+
+## >>> USER OVERRIDE 2026-10-01: ALL-IN OPTIONS MODE (supersedes Strategies 1-4 and the options limits) <<<
+The user chose this explicitly on 2026-10-01 after being shown that it will very likely lose most or
+all of the money (choice recorded in the session: "All-in options, as asked"). While this section
+is active:
+- Sell all stocks/ETFs and crypto in the account (at/after the 2026-10-01 open) and use the full
+  buying power (keep ~$2 cash) to BUY option contracts, maximising the number of contracts within
+  the liquidity filters below. Strategies 1-4 (SPY/QQQ/IBIT/dip/TOM/SGOV) are suspended; their
+  daily-check routine is disabled.
+- Long options only (calls/puts bought to open). Never sell naked options, never use margin to
+  buy, no spreads that need collateral beyond the cash.
+- Each new trade still needs its own research note in trading/research_notes/ (thesis, catalyst,
+  why this strike/expiry, what kills it). Social media stays leads only.
+- Contract filters (to avoid paying away the money in spreads): expiry 5-45 days; open interest
+  >= 500 and volume today >= 100; bid-ask spread <= 15% of the mid; enter with a limit order at
+  or near the mid. Among contracts passing these, prefer the setup with the best evidence, then
+  the most contracts for the money.
+- Exits: sell half when a position is +100%, let the rest run with a stop at breakeven on the
+  remainder; sell everything 2 trading days before expiry if not already closed (avoid the last
+  days of decay and exercise risk); no stop-loss on the way down unless the thesis breaks (a
+  premium-based stop just locks in losses on noisy options).
+- When flat, the next trade follows the same process with whatever cash is left.
+- New deposits are NOT automatically put into options: they wait as cash until the user says what
+  to do with them.
+- To end this mode the user just says so; the suspended strategies resume from the next check.
+
 Goal: compound the account without risking ruin until it is large enough for
 the SPY put-spread strategy (~$47k+). Deposits, not trading, will do most of
 that; the job here is to never blow up and to capture market growth.
