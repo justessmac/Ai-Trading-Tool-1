@@ -11,3 +11,9 @@
 - Daily SPY/IBIT check routine disabled; monthly review re-scoped (no trading); new "Options mode daily management" routine at 15:32 ET; one-off execution at 09:50 ET today.
 - Process mistake found and noted: the strategies adopted on 2026-10-01 (QQQ rotation, SGOV, turn-of-month) were never added to the daily-check routine prompt, which still allowed only SPY/IBIT. Moot now that the routine is off; if the stock strategies resume, the routine prompt must be rewritten from the playbook first.
 - New deposits (the pending $250) wait as cash for the user's instruction.
+
+## 2026-10-01 09:50-09:53 ET: switch to options mode executed
+- Sold SPY 0.162047 @ $763.19, IBIT 1.166781 @ $47.41, BTC 0.00001173 (~$0.97). Cash $249.96; $250 deposit still pending (not for options).
+- ACN (best momentum, +19% on its beat) failed the option liquidity filters (OI < 500, 15-35% spreads). NBIS fading, BA flat.
+- Bought (limit, working): 4 NKE Oct 9 $33 puts @ $0.53 (~$212) into tonight's earnings. Thesis: 5 of last 8 prints fell,
+  -52% 1y downtrend; options imply ~9.3% vs 8.1% average historical move. Exit decision at the Oct 2 open.

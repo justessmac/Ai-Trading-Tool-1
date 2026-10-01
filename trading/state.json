@@ -23,5 +23,26 @@
     "pick": null,
     "pick_month": null,
     "in_market": null
+  },
+  "options": {
+    "mode": "all-in options (user override 2026-10-01)",
+    "kept_aside_deposits": 0.0,
+    "pending_deposit_not_for_options": 250.0,
+    "positions": [
+      {
+        "symbol": "NKE",
+        "option_id": "a1a9cfed-2f9e-4c39-aeca-39b3b5fe9821",
+        "type": "put",
+        "strike": 33.0,
+        "expiry": "2026-10-09",
+        "contracts": 4,
+        "entry_limit": 0.53,
+        "order_id": "6abe65cb-7b24-4d99-8b90-8a82ec6ede59",
+        "entry_date": "2026-10-01",
+        "peak_gain_pct": 0.0,
+        "thesis": "trading/research_notes/2026-10-01_NKE_puts.md",
+        "exit_plan": "decide at Oct 2 first check after open; never hold past 2026-10-07"
+      }
+    ]
   }
 }

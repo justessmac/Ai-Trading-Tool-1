@@ -2,3 +2,7 @@ timestamp_et,order_id,symbol,side,quantity,avg_fill_price,dollar_amount,sleeve,r
 2026-09-27 00:28:53,6ab89b84-0cb5-428d-8d82-b5f07e961737,BTC,buy,0.00001173,85224.84,1.00,test,user-requested $1 live test of the order pipeline,n/a,250.00,filled
 2026-09-28 15:50:06,6abac4ee-264e-4929-bc0d-21bffb3b3b2b,SPY,buy,0.162047,765.2099,124.00,spy,SPY > SMA200×1.02 (signal in),SPY 765.35 / SMA200 718.45 (+6.5%),249.98,filled
 2026-09-28 15:50:07,6abac4ef-faed-4623-9449-25f3c8519542,IBIT,buy,1.166781,47.1382,55.00,ibit_trend,IBIT > SMA100×1.05 (signal in); size 25%×min(1,0.40/vol20),IBIT 47.14 / SMA100 39.89 (+18.2%); vol20 45.3%; RSI2 16.5,249.98,filled
+2026-10-01 09:50:53,6abe653d-dc56-4f70-92ec-967e150b331d,SPY,sell,0.162047,763.1949,123.67,options_switch,user override: all-in options mode,,,
+2026-10-01 09:50:54,6abe653e-4141-48a1-a296-8c16a295c0ad,IBIT,sell,1.166781,47.4115,55.32,options_switch,user override: all-in options mode,,,
+2026-10-01 09:50:55,6abe653f-c491-46ea-ad0a-8a7c96622c39,BTC,sell,0.00001173,82957.36,0.97,options_switch,user override: all-in options mode (crypto),,249.96,
+2026-10-01 09:53:15,6abe65cb-7b24-4d99-8b90-8a82ec6ede59,NKE 2026-10-09 33P,buy_to_open,4,limit 0.53,212.00,options,NKE earnings put play; note trading/research_notes/2026-10-01_NKE_puts.md,"NKE 35.8, implied move ~9.3%",,confirmed (pending fill)
