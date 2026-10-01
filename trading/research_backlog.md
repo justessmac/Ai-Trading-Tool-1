@@ -8,7 +8,7 @@ Status: todo / testing / adopted / rejected (see research_log.md for results)
 | 0a | Stocks-in-play day trading (Zarattini, Barbon & Aziz 2024): each morning pick stocks with the highest relative volume (incl. lower-priced names gaining attention via Robinhood scans), trade the 5-minute opening-range breakout, stop at the range, exit by close. Test on Robinhood 5-min bars (Feb 2026+) for a broad universe, with spread costs | published evidence for a daily intraday edge on 'stocks in play' | rejected on 40 large/mid caps (2026-10-01: IS +0.16R t 1.7 -> OOS -0.12R); RV>=2 hint positive in both halves but small sample. Forward paper test on scanner small caps continues; revisit with 30+ long paper trades |
 | 1 | Cash yield: hold idle cash in SGOV (T-bill ETF) instead of cash | ~4% on idle cash, near-zero risk | adopted 2026-10-01 (Strategy 4: idle cash >= $20 in SGOV) |
 | 2 | QQQ vs SPY: 3–6-month momentum picks which one the core holds | Nasdaq led most of 2010–2026 | adopted 2026-10-01 as Strategy 1b (126-day pick + SMA200 + absolute momentum), phased in |
-| 3 | SPY dip-buy: add IWM/QQQ as extra dip candidates | more dip trades per year | todo |
+| 3 | SPY dip-buy: add IWM/QQQ as extra dip candidates | more dip trades per year | adopted 2026-10-01, effective 2026-10-05 (lowest RSI(2) of SPY/QQQ/IWM) |
 | 4 | ETH trend sleeve (ETHA/ETHE) alongside Bitcoin | second crypto trend, diversification | todo |
 | 5 | Turn-of-month effect: hold SPY dip sleeve last 1 + first 3 days of month | strong OOS result earlier (+0.4%/trade, t 6.9) | adopted 2026-10-01 as Strategy 4 (last 4 + first 1 days, no filter; OOS +0.39%/trade, t 2.5) |
 | 6 | Bitcoin swing: RSI(2) thresholds re-check with more IBIT data | only 37 trades so far | todo |

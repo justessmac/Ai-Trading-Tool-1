@@ -87,6 +87,15 @@ Backtest (SPY, 0.03% cost/side, next-day fills): chosen on 2001–2014 (81
 trades, 79% win, +0.55%/trade, t 2.5); confirmed 2015–2026 (98 trades, 68%
 win, +0.36%/trade, t 2.2, ~6-day holds, ~9 trades/yr). Small edge per trade:
 expected to add roughly +0.5–1%/yr to the account at 20% size.
+- CHANGE EFFECTIVE 2026-10-05 (approved 2026-10-01; waits a week per the
+  one-change-per-strategy-per-week rule): the dip candidates become SPY, QQQ
+  and IWM. Each day with no dip position open, compute RSI(2) and the 200-day
+  SMA for all three. If one or more has RSI(2) < 10 and is above its SMA200,
+  buy the one with the LOWEST RSI(2) (same size rule); exit that fund on its
+  own RSI(2) > 70 or after 10 trading days. One dip position at a time.
+  Backtest (fills at the signal close, 0.03%/side): 2001–2014 sleeve +5.2%/yr
+  (t 2.6) vs SPY-only +1.3%; 2015–2026 +6.6%/yr, 75% win, t 3.0, DD −15% vs
+  +4.7%, −12%; ~12 trades/yr. Report: reports/dip_candidates_backtest.md.
 Core trend positions are never averaged down (no adding to losers outside
 these rules).
 
