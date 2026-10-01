@@ -22,10 +22,10 @@ is active:
   days of decay and exercise risk); no stop-loss on the way down unless the thesis breaks (a
   premium-based stop just locks in losses on noisy options).
 - When flat, the next trade follows the same process with whatever cash is left.
-- Deposits: the pending $250 deposit (user, 2026-10-01) goes into options too once it shows in
-  buying power, through the same research process and filters (it can add to the open position
-  only if that trade still meets its entry case, otherwise it funds the next trade). Log it in
-  trading/deposits.csv. Any later deposits wait as cash until the user says what to do with them.
+- Deposits: only the ~$250 already in the account is at stake (user, 2026-10-01, reversing an
+  earlier message). The pending $250 deposit and any later deposits are NOT used for options:
+  they stay as cash, untouched, until the user says otherwise. Log them in trading/deposits.csv.
+  Keep options orders within (account value - deposited cash kept aside).
 - GOAL AND TIME BOX (user, 2026-10-01): make as much money as possible with high-risk,
   high-reward option trades for 2 weeks, i.e. through the close of Thursday 2026-10-15, or until
   the account reaches a decent size, whichever comes first. "Decent size" = $10,000 account value
