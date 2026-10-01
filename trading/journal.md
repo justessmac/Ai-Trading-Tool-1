@@ -17,3 +17,8 @@
 - ACN (best momentum, +19% on its beat) failed the option liquidity filters (OI < 500, 15-35% spreads). NBIS fading, BA flat.
 - Bought (limit, working): 4 NKE Oct 9 $33 puts @ $0.53 (~$212) into tonight's earnings. Thesis: 5 of last 8 prints fell,
   -52% 1y downtrend; options imply ~9.3% vs 8.1% average historical move. Exit decision at the Oct 2 open.
+
+## 2026-10-01 10:15 ET: monthly review (options mode, day 1)
+- Options mode results so far: 0 closed trades. Value $249.96 cash; NKE put buy (4 x Oct 9 $33 @ $0.53) working, ~$212 reserved. $250 deposit pending (not for options).
+- Comparison: suspended stock plan would hold SPY/QQQ/IBIT; SPY is ~flat today (+0.1%).
+- Research: past earnings-reaction direction does not predict the next one (57% down after two down reactions vs 62% base, n=21). No rule change.
