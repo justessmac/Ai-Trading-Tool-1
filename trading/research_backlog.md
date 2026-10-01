@@ -9,7 +9,7 @@ Status: todo / testing / adopted / rejected (see research_log.md for results)
 | 1 | Cash yield: hold idle cash in SGOV (T-bill ETF) instead of cash | ~4% on idle cash, near-zero risk | adopted 2026-10-01 (Strategy 4: idle cash >= $20 in SGOV) |
 | 2 | QQQ vs SPY: 3–6-month momentum picks which one the core holds | Nasdaq led most of 2010–2026 | adopted 2026-10-01 as Strategy 1b (126-day pick + SMA200 + absolute momentum), phased in |
 | 3 | SPY dip-buy: add IWM/QQQ as extra dip candidates | more dip trades per year | adopted 2026-10-01, effective 2026-10-05 (lowest RSI(2) of SPY/QQQ/IWM) |
-| 4 | ETH trend sleeve (ETHA/ETHE) alongside Bitcoin | second crypto trend, diversification | todo |
+| 4 | ETH trend sleeve (ETHA/ETHE) alongside Bitcoin | second crypto trend, diversification | rejected 2026-10-01 (50/50 BTC/ETH trend: IS +56% vs +44%/yr, OOS +20.5% vs +25.4%) |
 | 5 | Turn-of-month effect: hold SPY dip sleeve last 1 + first 3 days of month | strong OOS result earlier (+0.4%/trade, t 6.9) | adopted 2026-10-01 as Strategy 4 (last 4 + first 1 days, no filter; OOS +0.39%/trade, t 2.5) |
 | 6 | Bitcoin swing: RSI(2) thresholds re-check with more IBIT data | only 37 trades so far | todo |
 | 7 | Post-IPO lockup rebound on 100+ IPOs | +3.5% (t 1.8) on 38 IPOs | todo |
