@@ -37,6 +37,21 @@ is active:
   trade needs our own check (real catalyst or squeeze mechanics, rising volume, options liquid
   enough to pass the filters) and a research note. A meme setup may replace an open position only
   if that position's thesis is broken or it is at the +100% half-sale point.
+- EXIT TIMING (user, 2026-10-01: "time the market as best as possible for your exits"). Open
+  positions are checked at every routine run (9:47, 10:47, 12:47, 14:47 meme scans and the 15:32
+  check), using the underlying's 5-minute bars, VWAP and volume, on top of the fixed rules above:
+  * Lock in gains with a trailing rule: once a position is up >= +50%, sell if it gives back
+    more than a third of its peak gain (e.g. peak +90% -> sell below +60%).
+  * Sell into strength: if the underlying spikes far above VWAP on climax volume (a parabolic
+    5-minute run that starts printing lower highs, volume fading), take profit rather than wait.
+  * Sell weakness early: if the underlying loses VWAP and the day's opening-range low (calls) or
+    high (puts) on rising volume, and the thesis depended on momentum, exit rather than hope.
+  * Events: if the thesis is a catalyst (earnings etc.), decide BEFORE the event whether to hold
+    through it; the options' implied volatility usually collapses right after, so a call can lose
+    even on good news. If the move already happened before the event, sell before it.
+  * Avoid the first 5-10 minutes after the open and the last 5 minutes before the close for
+    entries/exits unless a stop or event forces it (widest spreads).
+  These are judgment aids, not a tested edge; every exit and its reason is logged.
 - APPROVAL (user, 2026-10-01): all trades in this mode are made without asking first; the user is
   told after each trade (phone alert + summary).
 - The user can end this mode early by saying so.
