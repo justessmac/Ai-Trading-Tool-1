@@ -70,6 +70,9 @@ def import_results() -> None:
             frames.setdefault(res["symbol"], []).append(df)
     INTRA_DIR.mkdir(parents=True, exist_ok=True)
     for sym, parts in frames.items():
+        old = INTRA_DIR / f"{sym}.csv"
+        if old.exists():  # merge with earlier fetches instead of overwriting them
+            parts = [pd.read_csv(old, index_col="time", parse_dates=True)] + parts
         df = pd.concat(parts).sort_index()
         df = df[~df.index.duplicated(keep="last")]
         df.to_csv(INTRA_DIR / f"{sym}.csv", index_label="time")
