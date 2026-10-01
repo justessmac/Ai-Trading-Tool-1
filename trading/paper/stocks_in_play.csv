@@ -2,3 +2,9 @@ date,ticker,direction,entered,entry_time_et,entry,stop,exit,r_multiple,pct_retur
 2026-09-30,LGHL,short,yes,09:50,5.8021,6.63,4.95,1.02,14.59,no trades at 15:55; exit at the 15:45 bar's close
 2026-09-30,VBIO,short,yes,09:35,3.7882,4.39,2.8098,1.62,25.73,exit 15:55 open
 2026-09-30,BIYA,short,yes,10:20,2.2988,2.47,1.995,1.76,13.12,exit 15:55 open; OR high broken first at 09:40
+2026-10-01,NXL,short,yes,09:35,7.6862,9.11,9.11,-1.01,-18.62,stopped 09:55
+2026-10-01,LRHC,short,yes,15:55,1.8991,2.1021,1.929,-0.16,-1.68,exit 15:55 open; OR high broken first at 09:55
+2026-10-01,SDEV,long,yes,09:35,3.8019,3.48,3.48,-1.01,-8.57,stopped 15:15
+2026-10-01,VEEA,long,yes,09:35,3.5017,2.92,3.549,0.08,1.25,exit 15:55 open
+2026-10-01,ABAT,long,no,,,2.28,,,,never broke the OR level
+2026-10-01,EZRA,short,yes,09:45,2.1204,2.29,2.29,-1.01,-8.1,stopped 10:50

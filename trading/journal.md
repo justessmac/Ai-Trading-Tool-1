@@ -24,3 +24,10 @@
 - Research: past earnings-reaction direction does not predict the next one (57% down after two down reactions vs 62% base, n=21). No rule change.
 - 10:17 ET: $0.53 bid unfilled for 24 min; cancelled and re-placed at the $0.56 ask -> FILLED 4 NKE Oct 9 $33 puts @ $0.56 ($224 + $0.16 fees). NKE $35.86. Cash left ~$25.80.
 - 15:32 ET: NKE faded to $35.32 into the print; puts $0.79 mark (+41%). Pre-event decision: hold through tonight's earnings per plan. Account $337.80 (+$88 vs $249.96 start).
+
+## 2026-10-01 after the close (daily research run)
+- NKE FQ1: EPS $0.48 vs $0.43-0.44 est (beat); revenue $11.21B vs $11.32B est (miss); FY27 guide: revenue down high-single digits, EPS $1.15-1.35; restructuring with layoffs. After hours ~$33.94 (-3.3% vs $35.10 close, -4% vs Sep 30). Sources: CNBC, Robinhood earnings data.
+- Our 4 x $33 puts: still out of the money. Model value at the open if NKE ~$33.9 and IV drops to 40-60%: ~$0.31-0.62 vs $0.56 cost. If NKE opens/slides to ~$33.0: ~$0.66-1.00. So roughly break-even unless the drop extends.
+- Plan for 9:47 ET Oct 2: if NKE is extending lower (below ~$33.5 with volume), hold for follow-through with the trailing rule; if it bounces back toward $34.5+, sell what's left.
+- Execution check: NKE put buy: decision ask $0.55 (09:53), filled $0.56 at 10:17 after the $0.53 bid sat 24 min -> $4 extra cost; rule now buys at the ask. Sales of SPY/IBIT/BTC filled at the quoted bid/last (no slippage issue). All orders recorded; research note present.
+- Paper scalps day 2: 6 setups, 5 entered: NXL short -1.01R, LRHC short -0.16R, SDEV long -1.01R, VEEA long +0.08R, EZRA short -1.01R. Running: 8 trades, +1.29R total (long 2 trades, -0.93R). Far from 30 long trades.
