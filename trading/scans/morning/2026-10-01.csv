@@ -1,0 +1,7 @@
+ticker,price,pct_change,rel_volume,volume_info,catalyst,catalyst_source,or_high,or_low,direction,planned_entry,stop,target,paper_size_shares,notes
+NXL,7.24,69.2,311.5,25.4M sh,no verified catalyst (microcap spike),RH scanner,9.11,7.69,short (down OR bar),break below 7.69,9.11,exit 15:55,1.76,paper only (no shorting)
+LRHC,2.02,-14.4,8.5,2.8M sh,none found,RH scanner,2.1021,1.9,short (down OR bar),break below 1.9,2.1021,exit 15:55,12.37,paper only (no shorting)
+SDEV,4.3,66.0,4.37,43.5M sh,"stablecoin microcap momentum (2nd day, -18% yesterday)",RH scanner,3.8,3.48,long (up OR bar),break above 3.8,3.48,exit 15:55,7.81,paper only
+VEEA,3.23,49.0,4.35,45.2M sh,none verified,RH scanner,3.5,2.92,long (up OR bar),break above 3.5,2.92,exit 15:55,4.31,paper only
+ABAT,2.32,5.0,4.35,14.2M sh,none verified,RH scanner,2.4,2.28,long (up OR bar),break above 2.4,2.28,exit 15:55,20.83,paper only
+EZRA,2.15,-5.7,28.8,1.9M sh (thin open: 16k sh first bar),none found,RH scanner,2.29,2.1215,short (down OR bar),break below 2.1215,2.29,exit 15:55,14.84,paper only (no shorting)
