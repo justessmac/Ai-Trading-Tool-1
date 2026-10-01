@@ -1,0 +1,7 @@
+date,source,ticker,lead,our_check,action
+2026-10-01,WSB top/day,MU,"earnings YOLOs incl. $1,080 10/2 calls","beat after the close Sep 30, but after-hours ~$1,068 vs $1,065 close: flat; stock ran +15% (927->1065) in 2 weeks into the print = priced in; 2-day calls just above spot decay fast without a pop",no trade (no tested rule; lottery)
+2026-10-01,WSB top/day + StockTwits,NKE,earnings Oct 1 after the close,"$35.4, range-bound 35.2-37.0 for 2 weeks; earnings straddle untested (Setup B); options lose implied vol after the print",no trade
+2026-10-01,WSB top/day,MSOS,$50k YOLO in pot stocks,"cannabis ETF -12% on Sep 30 in a sector sell-off; catching a falling knife, no tested rule",no trade
+2026-10-01,WSB top/day,HOOD,600k YOLO,"$112.5, no catalyst found",no trade
+2026-10-01,WSB top/day,EOSE,Q3 earnings play,"no tested earnings rule",no trade
+2026-10-01,own rules,SPY/QQQ/IWM/IBIT,"RSI(2) as of Sep 29 close: SPY 21, QQQ 39, IBIT 38 (needs < 10)",no dip or swing signal; the 15:48 check runs the scheduled Oct 1 actions (rotation phase-in to QQQ, SGOV for idle cash)
