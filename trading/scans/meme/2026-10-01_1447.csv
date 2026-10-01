@@ -1,0 +1,6 @@
+ticker,price,pct_change,rel_volume,lead_source,our_check,action
+FICO,670.65,+13.2%,3.8,RH scanner,rebound after the TransUnion/VantageScore drop; options ~$10+/contract too big for ~$26 cash,none
+MAT,15.68,+23.9%,3.5,RH scanner,CEO change (WSB lead); can't afford a contract with ~$26 cash while NKE is open,none
+NKTR,48.71,-19.5%,3.8,RH scanner,biotech drop; no thesis,none
+ACN,214.83,+17.2%,4.3,RH scanner,still fading from $225; options fail filters,none
+NXL,7.21,+68%,708,RH scanner,microcap; no options,none
