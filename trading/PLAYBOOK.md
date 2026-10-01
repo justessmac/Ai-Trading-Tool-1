@@ -14,8 +14,9 @@ is active:
 - Each new trade still needs its own research note in trading/research_notes/ (thesis, catalyst,
   why this strike/expiry, what kills it). Social media stays leads only.
 - Contract filters (to avoid paying away the money in spreads): expiry 5-45 days; open interest
-  >= 500 and volume today >= 100; bid-ask spread <= 15% of the mid; enter with a limit order at
-  or near the mid. Among contracts passing these, prefer the setup with the best evidence, then
+  >= 500 and volume today >= 100; bid-ask spread <= 15% of the mid; BUY with a limit order AT THE
+  ASK (user, 2026-10-01: "always buy at asking just to save time"); sells stay limit near the mid,
+  stepping to the bid if not filled within a few minutes. Among contracts passing these, prefer the setup with the best evidence, then
   the most contracts for the money.
 - Exits: sell half when a position is +100%, let the rest run with a stop at breakeven on the
   remainder; sell everything 2 trading days before expiry if not already closed (avoid the last
