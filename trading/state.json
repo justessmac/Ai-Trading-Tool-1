@@ -37,11 +37,13 @@
         "expiry": "2026-10-09",
         "contracts": 4,
         "entry_limit": 0.53,
-        "order_id": "6abe65cb-7b24-4d99-8b90-8a82ec6ede59",
+        "order_id": "6abe6b75-94d2-4f6c-95ed-f5fd0c3f5c5c",
         "entry_date": "2026-10-01",
         "peak_gain_pct": 0.0,
         "thesis": "trading/research_notes/2026-10-01_NKE_puts.md",
-        "exit_plan": "decide at Oct 2 first check after open; never hold past 2026-10-07"
+        "exit_plan": "decide at Oct 2 first check after open; never hold past 2026-10-07",
+        "entry_price": 0.56,
+        "cost": 224.16
       }
     ]
   }

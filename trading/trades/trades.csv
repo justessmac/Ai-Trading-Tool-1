@@ -5,4 +5,5 @@ timestamp_et,order_id,symbol,side,quantity,avg_fill_price,dollar_amount,sleeve,r
 2026-10-01 09:50:53,6abe653d-dc56-4f70-92ec-967e150b331d,SPY,sell,0.162047,763.1949,123.67,options_switch,user override: all-in options mode,,,
 2026-10-01 09:50:54,6abe653e-4141-48a1-a296-8c16a295c0ad,IBIT,sell,1.166781,47.4115,55.32,options_switch,user override: all-in options mode,,,
 2026-10-01 09:50:55,6abe653f-c491-46ea-ad0a-8a7c96622c39,BTC,sell,0.00001173,82957.36,0.97,options_switch,user override: all-in options mode (crypto),,249.96,
-2026-10-01 09:53:15,6abe65cb-7b24-4d99-8b90-8a82ec6ede59,NKE 2026-10-09 33P,buy_to_open,4,limit 0.53,212.00,options,NKE earnings put play; note trading/research_notes/2026-10-01_NKE_puts.md,"NKE 35.8, implied move ~9.3%",,confirmed (pending fill)
+2026-10-01 09:53:15,6abe65cb-7b24-4d99-8b90-8a82ec6ede59,NKE 2026-10-09 33P,buy_to_open,4,limit 0.53,0,options,NKE earnings put play; note trading/research_notes/2026-10-01_NKE_puts.md,"NKE 35.8, implied move ~9.3%",,cancelled unfilled 10:17 (repriced)
+2026-10-01 10:17:26,6abe6b75-94d2-4f6c-95ed-f5fd0c3f5c5c,NKE 2026-10-09 33P,buy_to_open,4,0.56,224.16,options,NKE earnings put play (repriced to ask); note trading/research_notes/2026-10-01_NKE_puts.md,NKE 35.86,~249.8,filled

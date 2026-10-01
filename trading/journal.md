@@ -22,3 +22,4 @@
 - Options mode results so far: 0 closed trades. Value $249.96 cash; NKE put buy (4 x Oct 9 $33 @ $0.53) working, ~$212 reserved. $250 deposit pending (not for options).
 - Comparison: suspended stock plan would hold SPY/QQQ/IBIT; SPY is ~flat today (+0.1%).
 - Research: past earnings-reaction direction does not predict the next one (57% down after two down reactions vs 62% base, n=21). No rule change.
+- 10:17 ET: $0.53 bid unfilled for 24 min; cancelled and re-placed at the $0.56 ask -> FILLED 4 NKE Oct 9 $33 puts @ $0.56 ($224 + $0.16 fees). NKE $35.86. Cash left ~$25.80.
