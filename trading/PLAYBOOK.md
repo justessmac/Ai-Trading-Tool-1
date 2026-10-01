@@ -24,7 +24,14 @@ is active:
 - When flat, the next trade follows the same process with whatever cash is left.
 - New deposits are NOT automatically put into options: they wait as cash until the user says what
   to do with them.
-- To end this mode the user just says so; the suspended strategies resume from the next check.
+- GOAL AND TIME BOX (user, 2026-10-01): make as much money as possible with high-risk,
+  high-reward option trades for 2 weeks, i.e. through the close of Thursday 2026-10-15, or until
+  the account reaches a decent size, whichever comes first. "Decent size" = $1,000 account value
+  (4x the ~$250 start; the user can change this number).
+- When the time box ends or the target is hit: close all option positions and tell the user.
+  Then rewrite the daily-check routine from this playbook (all adopted strategies incl. 1b, 1c,
+  3 change, 4) and resume Strategies 1-4, unless the user says otherwise.
+- The user can end this mode early by saying so.
 
 Goal: compound the account without risking ruin until it is large enough for
 the SPY put-spread strategy (~$47k+). Deposits, not trading, will do most of
