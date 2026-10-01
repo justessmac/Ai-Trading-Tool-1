@@ -58,6 +58,10 @@ is active:
   * Avoid the first 5-10 minutes after the open and the last 5 minutes before the close for
     entries/exits unless a stop or event forces it (widest spreads).
   These are judgment aids, not a tested edge; every exit and its reason is logged.
+- NO HALF-SALE (user, 2026-10-01 evening, NKE puts): don't sell half at +100%. Let the whole position
+  ride and sell ALL contracts at once when the peak looks in, using the EXIT TIMING signals
+  (trailing giveback of a third of the peak gain once >= +50%, climax spike then lower highs,
+  underlying reclaiming VWAP / bouncing off the low on volume). Applies to all positions.
 - APPROVAL (user, 2026-10-01): all trades in this mode are made without asking first; the user is
   told after each trade (phone alert + summary).
 - The user can end this mode early by saying so.
