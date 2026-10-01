@@ -37,6 +37,8 @@ is active:
   trade needs our own check (real catalyst or squeeze mechanics, rising volume, options liquid
   enough to pass the filters) and a research note. A meme setup may replace an open position only
   if that position's thesis is broken or it is at the +100% half-sale point.
+- APPROVAL (user, 2026-10-01): all trades in this mode are made without asking first; the user is
+  told after each trade (phone alert + summary).
 - The user can end this mode early by saying so.
 
 Goal: compound the account without risking ruin until it is large enough for
