@@ -11,7 +11,7 @@ Status: todo / testing / adopted / rejected (see research_log.md for results)
 | 3 | SPY dip-buy: add IWM/QQQ as extra dip candidates | more dip trades per year | adopted 2026-10-01, effective 2026-10-05 (lowest RSI(2) of SPY/QQQ/IWM) |
 | 4 | ETH trend sleeve (ETHA/ETHE) alongside Bitcoin | second crypto trend, diversification | rejected 2026-10-01 (50/50 BTC/ETH trend: IS +56% vs +44%/yr, OOS +20.5% vs +25.4%) |
 | 5 | Turn-of-month effect: hold SPY dip sleeve last 1 + first 3 days of month | strong OOS result earlier (+0.4%/trade, t 6.9) | adopted 2026-10-01 as Strategy 4 (last 4 + first 1 days, no filter; OOS +0.39%/trade, t 2.5) |
-| 6 | Bitcoin swing: RSI(2) thresholds re-check with more IBIT data | only 37 trades so far | todo |
+| 6 | Bitcoin swing: RSI(2) thresholds re-check with more IBIT data | only 37 trades so far | tested 2026-10-01 on spot BTC: trend half confirmed on unseen 2014-17; swing ~0 in 2018-21 on spot (GBTC artifact), +4.9%/trade 2014-17, +1.2% 2022-26. Review swing sizing at the 2026-10-03 weekly review |
 | 7 | Post-IPO lockup rebound on 100+ IPOs | +3.5% (t 1.8) on 38 IPOs | todo |
 | 8 | Volatility-scale SPY core too (target 15%) | smaller crashes | rejected 2026-10-01 (lower DD but lower CAGR both periods on the rotation) |
 | 9 | Weekend Bitcoin gap: does Monday IBIT gap predict the week? | IBIT misses weekends | rejected 2026-10-01 (weekend/next-week correlation -0.05 in 2015-20, +0.11 in 2021-26; down-weekend effect flips sign) |
