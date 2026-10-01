@@ -37,6 +37,13 @@ out of 6 rotation variants (+7.3%/yr, max DD −23.5% vs the SPY rule's +5.0%,
 switches/yr. Drawdown is close to the −25% limit and the gain leans on QQQ's
 tech run after 2015. Report: reports/core_rotation_backtest.md.
 
+## Strategy 1c: core "out" cash in T-bills (approved 2026-10-01, effective 2026-10-05)
+When the SPY trend half or the rotation half is out (holding cash), that cash
+sits in SGOV instead of plain cash (only if $20 or more; sell SGOV first when
+the half re-enters). Backtest (SHY as the 2003-2014 proxy): +9.9% vs +9.4%/yr
+(DD −21% vs −24%) in 2003–2014; +10.7% vs +10.6% in 2015–2026. Long bonds (TLT,
+IEF) and gold failed (TLT −42% DD in 2022). Report: reports/risk_off_asset_backtest.md.
+
 ## Strategy 2: Bitcoin trend sleeve via IBIT (adopted 2026-09-27, user asked for crypto)
 Traded through IBIT (iShares spot Bitcoin ETF) as a regular fractional stock
 order: same hours and tools as SPY, and Robinhood has daily history for it.
