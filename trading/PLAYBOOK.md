@@ -31,6 +31,12 @@ is active:
 - When the time box ends or the target is hit: close all option positions and tell the user.
   Then rewrite the daily-check routine from this playbook (all adopted strategies incl. 1b, 1c,
   3 change, 4) and resume Strategies 1-4, unless the user says otherwise.
+- MEME-TRADE RESEARCH (user, 2026-10-01): scan for meme setups several times a day (WSB hot/new,
+  StockTwits trending, Robinhood scanner for relative volume >= 3 and big % moves, short-interest
+  and options-volume spikes, news via WebSearch). Social posts are still leads only: each meme
+  trade needs our own check (real catalyst or squeeze mechanics, rising volume, options liquid
+  enough to pass the filters) and a research note. A meme setup may replace an open position only
+  if that position's thesis is broken or it is at the +100% half-sale point.
 - The user can end this mode early by saying so.
 
 Goal: compound the account without risking ruin until it is large enough for
