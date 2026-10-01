@@ -10,5 +10,11 @@
     "entry_date": null,
     "shares": 0,
     "entry_price": null
+  },
+  "tom": {
+    "open": false,
+    "entry_date": null,
+    "shares": 0,
+    "entry_price": null
   }
 }

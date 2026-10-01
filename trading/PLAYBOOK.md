@@ -72,6 +72,26 @@ expected to add roughly +0.5–1%/yr to the account at 20% size.
 Core trend positions are never averaged down (no adding to losers outside
 these rules).
 
+## Strategy 4: turn-of-month (TOM) + T-bill yield on idle cash (adopted 2026-10-01)
+Idle cash = cash not needed by the targets above and not used by the IBIT
+swing or SPY dip sleeves (those two have priority). Tracked in
+trading/state.json as "tom".
+- TOM: at the 15:48 check on the trading day when exactly 4 trading days of
+  the month remain after today, BUY SPY with min(20% of account, idle cash −
+  $2). SELL it at the 15:48 check on the 1st trading day of the next month.
+  No trend filter. If the IBIT swing or SPY dip signal fires while TOM holds
+  cash, they use what is left (no forced sale), like Strategy 3.
+- T-bills: idle cash of $20 or more that TOM and the other sleeves are not
+  using sits in SGOV (0-3 month T-bill ETF). Sell SGOV first whenever any
+  sleeve needs cash. Don't trade SGOV for amounts under $20 (not worth the
+  rounding).
+Backtest (SPY, adjusted closes, 0.03%/side): chosen on 2001–2014 out of 40
+settings (168 trades, 62% win, +0.53%/trade, t 2.7); confirmed 2015–2026
+(140 trades, 59% win, +0.39%/trade, t 2.5); works on QQQ/IWM too. Edge over a
+random 5-day hold is only ~+0.14%/trade; mostly cheap market exposure on ~24%
+of days. Idle-cash sleeve 2015–2026: BIL+TOM +5.3%/yr (max DD −10%) vs BIL
++2.0%, cash 0%. Report: reports/turn_of_month_backtest.md.
+
 ## Hard rules
 - Never deposit to or withdraw from this account, or move money in or out
   of it in any way (user's standing instruction, 2026-09-27).

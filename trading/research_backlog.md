@@ -6,11 +6,11 @@ Status: todo / testing / adopted / rejected (see research_log.md for results)
 |---|---|---|---|
 | 0b | Options (Setup A in reports/Buying calls and puts small account.md; also B–D there queued after): SPY $1-wide call debit spread (~30 DTE) on the SPY dip-buy signal instead of shares; test on REAL SPY call prices | leverages a tested edge with defined max loss (~$40–60) | REJECTED 2026-09-29: 74 trades, after costs −7.6%/trade (t −2.1); positive only at mid prices (+4.6%, t 1.2). See reports/options_setup_a_backtest.md. Next: Setup B (pre-earnings straddle) |
 | 0a | Stocks-in-play day trading (Zarattini, Barbon & Aziz 2024): each morning pick stocks with the highest relative volume (incl. lower-priced names gaining attention via Robinhood scans), trade the 5-minute opening-range breakout, stop at the range, exit by close. Test on Robinhood 5-min bars (Feb 2026+) for a broad universe, with spread costs | published evidence for a daily intraday edge on 'stocks in play' | rejected on 40 large/mid caps (2026-10-01: IS +0.16R t 1.7 -> OOS -0.12R); RV>=2 hint positive in both halves but small sample. Forward paper test on scanner small caps continues; revisit with 30+ long paper trades |
-| 1 | Cash yield: hold idle cash in SGOV (T-bill ETF) instead of cash | ~4% on idle cash, near-zero risk | todo |
+| 1 | Cash yield: hold idle cash in SGOV (T-bill ETF) instead of cash | ~4% on idle cash, near-zero risk | adopted 2026-10-01 (Strategy 4: idle cash >= $20 in SGOV) |
 | 2 | QQQ vs SPY: 3–6-month momentum picks which one the core holds | Nasdaq led most of 2010–2026 | todo |
 | 3 | SPY dip-buy: add IWM/QQQ as extra dip candidates | more dip trades per year | todo |
 | 4 | ETH trend sleeve (ETHA/ETHE) alongside Bitcoin | second crypto trend, diversification | todo |
-| 5 | Turn-of-month effect: hold SPY dip sleeve last 1 + first 3 days of month | strong OOS result earlier (+0.4%/trade, t 6.9) | todo |
+| 5 | Turn-of-month effect: hold SPY dip sleeve last 1 + first 3 days of month | strong OOS result earlier (+0.4%/trade, t 6.9) | adopted 2026-10-01 as Strategy 4 (last 4 + first 1 days, no filter; OOS +0.39%/trade, t 2.5) |
 | 6 | Bitcoin swing: RSI(2) thresholds re-check with more IBIT data | only 37 trades so far | todo |
 | 7 | Post-IPO lockup rebound on 100+ IPOs | +3.5% (t 1.8) on 38 IPOs | todo |
 | 8 | Volatility-scale SPY core too (target 15%) | smaller crashes | todo |
