@@ -26,8 +26,8 @@ is active:
   to do with them.
 - GOAL AND TIME BOX (user, 2026-10-01): make as much money as possible with high-risk,
   high-reward option trades for 2 weeks, i.e. through the close of Thursday 2026-10-15, or until
-  the account reaches a decent size, whichever comes first. "Decent size" = $1,000 account value
-  (4x the ~$250 start; the user can change this number).
+  the account reaches a decent size, whichever comes first. "Decent size" = $10,000 account value
+  (user, 2026-10-01; was $1,000).
 - When the time box ends or the target is hit: close all option positions and tell the user.
   Then rewrite the daily-check routine from this playbook (all adopted strategies incl. 1b, 1c,
   3 change, 4) and resume Strategies 1-4, unless the user says otherwise.
