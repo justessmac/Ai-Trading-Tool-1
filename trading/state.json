@@ -28,7 +28,8 @@
     "mode": "all-in options (user override 2026-10-01)",
     "kept_aside_deposits": 0.0,
     "pending_deposit_not_for_options": 250.0,
-    "positions": [
+    "positions": [],
+    "closed": [
       {
         "symbol": "NKE",
         "option_id": "a1a9cfed-2f9e-4c39-aeca-39b3b5fe9821",
@@ -44,8 +45,16 @@
         "exit_plan": "decide at Oct 2 first check after open; never hold past 2026-10-07",
         "entry_price": 0.56,
         "cost": 224.16,
-        "last_check": "2026-10-02 09:32 NKE 32.09 (-8.7%); puts mark 1.315 bid 1.21 (+135%); no trade in first minutes; peak-watch from 9:47"
+        "last_check": "2026-10-02 09:32 NKE 32.09 (-8.7%); puts mark 1.315 bid 1.21 (+135%); no trade in first minutes; peak-watch from 9:47",
+        "exit_order_id": "6abfb336-0a59-4b6a-85c6-68133c5e0454",
+        "exit_price": 0.69,
+        "proceeds": 275.84,
+        "pnl": 51.68,
+        "pnl_pct": 23.1,
+        "exit_time": "2026-10-02 09:35:50 ET"
       }
-    ]
+    ],
+    "options_cash": 301.64,
+    "realized_pnl": 51.68
   }
 }

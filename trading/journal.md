@@ -31,3 +31,9 @@
 - Plan for 9:47 ET Oct 2: if NKE is extending lower (below ~$33.5 with volume), hold for follow-through with the trailing rule; if it bounces back toward $34.5+, sell what's left.
 - Execution check: NKE put buy: decision ask $0.55 (09:53), filled $0.56 at 10:17 after the $0.53 bid sat 24 min -> $4 extra cost; rule now buys at the ask. Sales of SPY/IBIT/BTC filled at the quoted bid/last (no slippage issue). All orders recorded; research note present.
 - Paper scalps day 2: 6 setups, 5 entered: NXL short -1.01R, LRHC short -0.16R, SDEV long -1.01R, VEEA long +0.08R, EZRA short -1.01R. Running: 8 trades, +1.29R total (long 2 trades, -0.93R). Far from 30 long trades.
+
+## 2026-10-02 09:35 ET: NKE puts sold (trailing + bounce rule)
+- 09:32: NKE opened $32.09 (-8.7%); puts mark $1.315, bid $1.21 (+135%) — that was the peak. No trade in the first minutes per the open rule.
+- 09:34-09:35: NKE bounced to ~$32.93-33.0; puts fell to bid $0.65 / ask $0.74. Gain gave back far more than a third of the peak and the stock reclaimed ground -> sold all 4 @ $0.69 (filled instantly). Proceeds $275.84 after $0.16 fees; P&L +$51.68 (+23%) on $224.16.
+- Lesson: on an overnight event trade that gaps hard in our favour, the opening print is often the peak (IV crush + gap fade). The no-trade-in-first-minutes rule cost ~$200 here. Proposed rule: if an event option opens >= +100%, sell at the open (limit at the bid) rather than wait.
+- Options cash now ~$301.64. Next: research the next trade and buy at the ask with the proceeds only.
