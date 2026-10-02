@@ -1,0 +1,8 @@
+ticker,price,pct_change,rel_volume,catalyst,catalyst_source,best_contract,bid,ask,spread_pct_mid,oi,volume,verdict
+WOLF,~35.0,12.2,1.7,commercial shipments of new 200mm SiC substrate,Benzinga movers list,Oct16 35C,2.26,2.93,26,3737,163,fail spread
+WOLF,,,,,,Oct16 37.5C,1.37,1.89,32,586,85,fail spread
+IBRX,10.25,10.5,1.8,"chairman backs PDS Biotech PIPE; multi-week uptrend from 7.91",StocksToTrade / Cryptonomist,Oct16 11C,0.50,0.60,18,2110,221,"closest; fails spread (18% > 15%)"
+IBRX,,,,,,Oct16 12C,0.25,0.45,57,11167,738,fail spread
+STX,823.7,-12.9,2.6,Toshiba HDD expansion,Yahoo/Investing,n/a,,,,,,"illiquid affordable strikes"
+WDC,403.4,-12.8,2.5,same,same,n/a,,,,,,"too expensive"
+SYNA,121.2,14.1,8.3,ON $123 cash deal,24/7 Wall St,n/a,,,,,,pinned
