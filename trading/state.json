@@ -39,12 +39,12 @@
         "entry_limit": 0.53,
         "order_id": "6abe6b75-94d2-4f6c-95ed-f5fd0c3f5c5c",
         "entry_date": "2026-10-01",
-        "peak_gain_pct": 41.1,
+        "peak_gain_pct": 134.8,
         "thesis": "trading/research_notes/2026-10-01_NKE_puts.md",
         "exit_plan": "decide at Oct 2 first check after open; never hold past 2026-10-07",
         "entry_price": 0.56,
         "cost": 224.16,
-        "last_check": "2026-10-01 15:32 mark 0.79 (+41%), bid 0.75; NKE 35.32 (-0.2% day, faded from 36.12); account $337.80 (options $312 + cash $25.80). Pre-event decision: HOLD through earnings (plan); trailing rule not active (<+50%)"
+        "last_check": "2026-10-02 09:32 NKE 32.09 (-8.7%); puts mark 1.315 bid 1.21 (+135%); no trade in first minutes; peak-watch from 9:47"
       }
     ]
   }

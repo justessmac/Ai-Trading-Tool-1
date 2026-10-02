@@ -1,0 +1,5 @@
+rank,ticker,price_0932,pct_vs_prev_close,catalyst,catalyst_source,direction_idea,options_check,planned_entry_trigger,notes
+0,NKE (held),32.09,-8.7%,FQ1 beat / revenue miss / weak FY27 guide / layoffs,CNBC + RH earnings,hold puts; sell all at the peak,our 33P mark 1.315 (bid 1.21 / ask 1.42) +135%,peak-watch 9:47/10:05/10:25,
+1,STX (Seagate),?,2x STX ETFs -30% => STX ~-15%,unknown overnight news - verify,RH scanner (STXL/STXU),puts or calls after the first 15 min,to check (large cap; liquid chain),break of the 15-min range on volume,also WDC 2x ETF -19%: storage sector sell-off
+2,SYNA,121.74,+14.7%,unknown - verify,RH scanner,call momentum,to check,hold above the first 15-min low,
+3,SDEV,5.28,+44%,third day run; stablecoin microcap,RH scanner,none (no liquid options),fails,,
