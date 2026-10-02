@@ -1,0 +1,16 @@
+ticker,price,pct_change,rel_volume,source,reason
+SDEV,6.76,84.6,9.3,RH scanner,stablecoin microcap momentum (3rd day); no liquid options
+AMOD,~4.5,~290,136,RH scanner,$250M bitcoin-settled PIPE; faded (paper long stopped)
+XRPN,39.57,68.9,18.8,RH scanner/StockTwits,SPAC (XRP treasury theme); thin options
+SYNA,121.3,14.3,9.1,RH scanner,ON Semi $123 all-cash deal (pinned)
+WOLF,35.3,13.4,2.3,RH options-liquidity scan/StockTwits,200mm SiC substrate shipments
+PENG,62.1,12.9,1.6,RH options-liquidity scan,earnings 10/6 pm; avg earnings gap 9%
+VSH,37.8,10.4,1.9,RH options-liquidity scan,catalyst not yet checked
+IBRX,10.1,9.1,2.5,StockTwits #1/RH scanner,chairman backs PDS PIPE; multi-week uptrend
+STM,57.3,7.1,1.6,RH options-liquidity scan,semis/SiC sympathy (with WOLF)
+VIAV,47.7,6.5,1.6,RH options-liquidity scan,catalyst not yet checked
+STX,843,-10.8,3.3,RH scanner/StockTwits/WSB,Toshiba to double HDD capacity
+WDC,416,-10.0,3.2,RH scanner/StockTwits/WSB,same
+NKE,33.9,-3.5,3.6,RH scanner/WSB,FQ1 miss on revenue + weak guide (our put trade)
+GME,n/a,n/a,n/a,StockTwits trending,lead only
+APP,n/a,n/a,n/a,StockTwits trending,lead only

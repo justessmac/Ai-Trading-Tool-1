@@ -8,3 +8,8 @@ date,ticker,direction,entered,entry_time_et,entry,stop,exit,r_multiple,pct_retur
 2026-10-01,VEEA,long,yes,09:35,3.5017,2.92,3.549,0.08,1.25,exit 15:55 open
 2026-10-01,ABAT,long,no,,,2.28,,,,never broke the OR level
 2026-10-01,EZRA,short,yes,09:45,2.1204,2.29,2.29,-1.01,-8.1,stopped 10:50
+2026-10-02,AMOD,long,yes,09:40,3.972,3.4703,3.4703,-1.01,-12.73,stopped 11:00; OR low broken first at 09:35
+2026-10-02,SMX,short,yes,10:30,4.3178,5.4499,3.81,0.44,11.66,exit 15:55 open
+2026-10-02,SDEV,long,yes,09:40,5.7028,4.9803,7.1839,2.04,25.87,exit 15:55 open
+2026-10-02,SORA,short,yes,09:35,2.099,2.37,2.37,-1.01,-13.01,stopped 09:55
+2026-10-02,SSM,short,no,,,2.3994,,,,never broke the OR level

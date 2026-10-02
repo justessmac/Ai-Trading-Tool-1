@@ -38,3 +38,19 @@
 5. **Event timing of entries.** Buying Friday afternoon pays two days of weekend decay; earnings plays are best entered the day before the report.
 6. **Routine hygiene.** Peak-watch one-offs kept firing after the position was sold; future one-offs should be cancelled right after the exit.
 7. **Watch the deposit.** The $250 pending deposit disappeared from pending_deposits without landing; flagged to the user.
+
+## 2026-10-02: earnings gap history for next week's earnings plays (backlog 12)
+Robinhood daily bars + Robinhood earnings dates, last 5-6 reports each. Gap = next open vs the close before the report (what the SELL AT THE OPEN rule captures). Script: trading/research/earnings_moves_2026-10-02.py.
+
+| Stock | Report | Avg abs gap | Avg abs close move | Max gap | Up gaps |
+|---|---|---|---|---|---|
+| APLD | 10/7 pm | 13.5% | 16.7% | 26.4% | 4/6 |
+| LEVI | 10/7 pm | 10.1% | 7.5% | 16.4% | 3/6 |
+| PENG | 10/6 pm | 9.0% | 15.8% | 17.8% | 3/5 |
+| DAL | 10/9 am | 6.4% | 7.9% | 11.2% | 4/6 |
+| STZ | 10/6 pm | 2.8% | 3.6% | 4.2% | 5/6 |
+| PEP | 10/8 am | 1.9% | 4.5% | 4.7% | 4/6 |
+
+Takeaways: APLD, LEVI and PENG gap big (9-14% on average), so a long option can pay at the open if the move beats what the options price in; STZ and PEP rarely move enough to beat option premium, so they drop off the list. Direction is mixed for all (no reliable up/down edge with n=5-6), so direction must come from the thesis/news, not history. Monday/Tuesday step: compare each name's implied move (ATM straddle / price) with these averages; only buy where the history is clearly larger than the implied move. Caveat: n=5-6 per stock, too small for a firm rule (no rule adopted). Data note: Robinhood daily bars are stamped 00:00 UTC; use the UTC date (converting to New York shifts them a day).
+Execution check (1): NKE sell filled $0.69 at 09:35:50 vs decision quote bid $0.65 / ask $0.74 (mid $0.695): no slippage beyond the mid. All orders recorded; research note present.
+Paper scalps day 3: 5 setups, 4 entered: AMOD long -1.01R, SMX short +0.44R, SDEV long +2.04R, SORA short -1.01R. Running: 12 trades, +1.75R total (long 4 trades, +0.10R). Far from 30 long trades.

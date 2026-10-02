@@ -1,14 +1,14 @@
 # Paper trades: stocks in play (opening-range breaks)
 
-Running summary, updated 2026-10-01. R = net return / risk to the stop. Costs 0.1% round trip.
+Running summary, updated 2026-10-02. R = net return / risk to the stop. Costs 0.1% round trip.
 
 | Side | Paper trades | Win rate | Avg R | Total R | t-stat |
 |---|---|---|---|---|---|
-| long | 2 | 50% | -0.47 | -0.93 | -0.85 |
-| short | 6 | 50% | +0.37 | +2.22 | 0.72 |
-| all | 8 | 50% | +0.16 | +1.29 | 0.39 |
+| long | 4 | 50% | +0.03 | +0.10 | 0.03 |
+| short | 8 | 50% | +0.21 | +1.65 | 0.50 |
+| all | 12 | 50% | +0.15 | +1.75 | 0.42 |
 
-Setups scanned: 9; entered: 8.
+Setups scanned: 14; entered: 12.
 <!-- end summary -->
 
 ## What this is
