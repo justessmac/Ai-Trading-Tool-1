@@ -1,0 +1,7 @@
+ticker,price,pct_change,rel_volume,catalyst,options_pass_filters,verdict
+STX,812.06,-14.1,1.7,Toshiba HDD capacity report,no (illiquid affordable strikes),reject; bounce failed (836 -> 812)
+SYNA,120.87,13.9,7.4,ON Semi $123 all-cash deal,n/a,reject: pinned by deal price
+SDEV,6.70,83.1,6.4,stablecoin microcap momentum,no liquid options,skip
+APLD (via APLX 2x),~26.7,~+10,n/a,AI data-center momentum; earnings 10/7 pm,check Mon/Tue,watch: earnings-play candidate for 10/5-10/6 entry
+TH,18.97,-7.4,2.0,none verified,not checked,skip
+CTVA,12.995,3.4,2.9,none verified,not checked,skip (small move)
