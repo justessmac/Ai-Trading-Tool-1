@@ -62,6 +62,12 @@ is active:
   ride and sell ALL contracts at once when the peak looks in, using the EXIT TIMING signals
   (trailing giveback of a third of the peak gain once >= +50%, climax spike then lower highs,
   underlying reclaiming VWAP / bouncing off the low on volume). Applies to all positions.
+- SELL AT THE OPEN (user, 2026-10-02, after NKE puts peaked at +135% at 9:32 then gave most of it
+  back within 3 minutes): for short-term / day-trade options held into an overnight event (earnings,
+  news), if the position opens at >= +100% gain, sell ALL contracts right at the open (first check
+  from 9:30 ET; limit at the bid, or a cent above). Do not wait out the opening minutes — the gap
+  print plus IV crush is usually the peak. Below +100% at the open, use the EXIT TIMING rules.
+  This overrides the "no trade in the first minutes" rule and NO HALF-SALE for these positions.
 - APPROVAL (user, 2026-10-01): all trades in this mode are made without asking first; the user is
   told after each trade (phone alert + summary).
 - The user can end this mode early by saying so.
