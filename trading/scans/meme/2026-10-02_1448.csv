@@ -1,0 +1,6 @@
+ticker,price,pct_change,best_contract,bid,ask,spread_pct_mid,oi,volume,verdict
+WOLF,35.23,13.0,Oct16 35C,2.42,2.86,17,3737,164,"fail spread (17%); one contract = $286 (all-in on one name over a weekend)"
+IBRX,10.115,9.0,Oct16 11C,0.40,0.55,32,2110,229,fail spread (widened from 18%)
+STX,843.2,-10.8,n/a,,,,,,recovering; affordable strikes illiquid
+WDC,416.1,-10.0,n/a,,,,,,too expensive
+THRM,31.03,-7.7,not checked,,,,,,rel vol 9.8 but no clear catalyst found; skip
