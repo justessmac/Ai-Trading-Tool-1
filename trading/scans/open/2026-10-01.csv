@@ -1,0 +1,8 @@
+rank,ticker,price_0932,pct_vs_prev_close,catalyst,catalyst_source,direction_idea,options_check,planned_entry_trigger,notes
+1,ACN,218.11,+18.9%,"FQ4 beat (EPS 3.29 vs 3.18 est), reported this morning","Robinhood earnings calendar (actual EPS)",call (post-earnings gap-and-go / drift),"to check at 9:50 (large cap, normally liquid)","hold above the first 15-min low and break the 15-min high on volume","huge gap for a large cap; risk of gap fade in the first hour"
+2,NBIS,,premarket up,"BNP Paribas upgrade; 20% GPU-cloud price hike effective Oct 1","web search (premarket movers)",call,"to check","break of the 15-min high","AI infra momentum name; verify the upgrade source"
+3,BA,,~+3% premarket,"selected for Navy F/A-XX fighter, >$20B contract","web search (premarket movers); confirm DoD release",call,"to check (very liquid)","hold above VWAP after 10:00","big-cap, smaller % move; cheaper options per contract"
+4,NKE,35.59,+0.5%,"FQ1 earnings tonight (pm), EPS est 0.44","Robinhood earnings calendar",straddle/directional into the print (IV crush risk),"to check","decide by 15:30 whether to hold through the print","event trade; WSB says nobody cares"
+5,NXL,7.98,+90%,"no verified catalyst yet; 276x relative volume","Robinhood scanner",avoid unless liquid options exist,"likely fails OI/spread filters","n/a","microcap pump pattern"
+watch,MU,1065.59,+0.0%,"beat Sep 30 after close; flat reaction = priced in","quotes",none,"","",""
+watch,LQDA,23.50,-22%,"second day down hard; cause unverified","scanner",none,"","",""

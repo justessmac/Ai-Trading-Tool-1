@@ -1,0 +1,8 @@
+ticker,price,pct_change,rel_volume,lead_source,our_check,action
+NXL,7.64,+78.5%,448,RH scanner,no verified catalyst; microcap; no liquid options expected,none
+AISP,2.46,+32.3%,116,RH scanner,microcap AI name; under $3; options unlikely to pass filters,none
+SDEV,4.20,+62.3%,8.1,RH scanner,stablecoin microcap; second-day run; options not liquid,none
+VEEA,3.37,+55.1%,5.7,RH scanner,no verified catalyst,none
+CTVA,12.62,-83.7%,5.9,RH scanner,likely a corporate action/spin-off price adjustment (not a real crash); ignore,none
+FHTX,2.17,-39.2%,14.1,RH scanner,biotech drop; no options edge,none
+LQDA,26.23,-13.3%,5.4,RH scanner,second day down; cause unverified,none

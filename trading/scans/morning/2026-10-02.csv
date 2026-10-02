@@ -1,0 +1,6 @@
+ticker,price,pct_change,rel_volume,volume_info,catalyst,catalyst_source,or_high,or_low,direction,planned_entry,stop,target,paper_size_shares,notes
+AMOD,4.56,289.7,136.5,113.6M sh,"closed $250M bitcoin-settled PIPE (51.6M shares + warrants @ $4.36), announced Oct 1",company PR via gurufocus.com,3.97,3.4703,long (up OR bar),break above 3.97,3.4703,exit 15:55,6.04,paper only; scanned 09:41 (already well above OR high)
+SMX,4.50,-26.9,26.5,1.18M sh (thin open: 62k first bar),none verified,RH scanner,5.4499,4.32,short (down OR bar),break below 4.32,5.4499,exit 15:55,2.67,paper only (no shorting)
+SDEV,5.33,45.6,2.84,38.5M sh,"stablecoin microcap momentum (3rd day)",RH scanner,5.70,4.9803,long (up OR bar),break above 5.70,4.9803,exit 15:55,4.20,paper only
+SORA,2.20,-8.3,6.03,1.35M sh (thin open: 43k first bar),none found,RH scanner,2.37,2.1001,short (down OR bar),break below 2.1001,2.37,exit 15:55,11.19,paper only (no shorting)
+SSM,2.31,4.4,2.94,14.0M sh,none found,RH scanner,2.3994,2.11,short (down OR bar),break below 2.11,2.3994,exit 15:55,10.44,paper only (no shorting)

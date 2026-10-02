@@ -1,0 +1,5 @@
+ticker,price,pct_change,rel_volume,lead_source,our_check,action
+ACN,216.71,+18.2%,3.7,RH scanner,faded from ~$225 to $216.7 since 10am; options still fail OI/spread filters,none
+NXL,7.73,+80.6%,647,RH scanner,microcap; no verified catalyst; no liquid options,none
+LQDA,26.07,-13.8%,7.4,RH scanner,second day down; cause unverified,none
+CTVA,11.99,-84.6%,10.1,RH scanner,corporate-action price adjustment (not a real crash),none

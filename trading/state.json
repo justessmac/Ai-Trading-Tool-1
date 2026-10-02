@@ -1,0 +1,60 @@
+{
+  "ibit_swing": {
+    "open": false,
+    "entry_date": null,
+    "shares": 0,
+    "entry_price": null
+  },
+  "spy_dip": {
+    "open": false,
+    "entry_date": null,
+    "shares": 0,
+    "entry_price": null
+  },
+  "tom": {
+    "open": false,
+    "entry_date": null,
+    "shares": 0,
+    "entry_price": null
+  },
+  "core_rotation": {
+    "phase": 1,
+    "rotation_share_of_account": 0.25,
+    "pick": null,
+    "pick_month": null,
+    "in_market": null
+  },
+  "options": {
+    "mode": "all-in options (user override 2026-10-01)",
+    "kept_aside_deposits": 0.0,
+    "pending_deposit_not_for_options": 250.0,
+    "positions": [],
+    "closed": [
+      {
+        "symbol": "NKE",
+        "option_id": "a1a9cfed-2f9e-4c39-aeca-39b3b5fe9821",
+        "type": "put",
+        "strike": 33.0,
+        "expiry": "2026-10-09",
+        "contracts": 4,
+        "entry_limit": 0.53,
+        "order_id": "6abe6b75-94d2-4f6c-95ed-f5fd0c3f5c5c",
+        "entry_date": "2026-10-01",
+        "peak_gain_pct": 134.8,
+        "thesis": "trading/research_notes/2026-10-01_NKE_puts.md",
+        "exit_plan": "decide at Oct 2 first check after open; never hold past 2026-10-07",
+        "entry_price": 0.56,
+        "cost": 224.16,
+        "last_check": "2026-10-02 09:32 NKE 32.09 (-8.7%); puts mark 1.315 bid 1.21 (+135%); no trade in first minutes; peak-watch from 9:47",
+        "exit_order_id": "6abfb336-0a59-4b6a-85c6-68133c5e0454",
+        "exit_price": 0.69,
+        "proceeds": 275.84,
+        "pnl": 51.68,
+        "pnl_pct": 23.1,
+        "exit_time": "2026-10-02 09:35:50 ET"
+      }
+    ],
+    "options_cash": 301.64,
+    "realized_pnl": 51.68
+  }
+}

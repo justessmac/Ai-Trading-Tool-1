@@ -1,0 +1,21 @@
+# Research backlog (daily research picks the top untested item)
+
+Status: todo / testing / adopted / rejected (see research_log.md for results)
+
+| # | Idea | Why it might help | Status |
+|---|---|---|---|
+| 0b | Options (Setup A in reports/Buying calls and puts small account.md; also B–D there queued after): SPY $1-wide call debit spread (~30 DTE) on the SPY dip-buy signal instead of shares; test on REAL SPY call prices | leverages a tested edge with defined max loss (~$40–60) | REJECTED 2026-09-29: 74 trades, after costs −7.6%/trade (t −2.1); positive only at mid prices (+4.6%, t 1.2). See reports/options_setup_a_backtest.md. Next: Setup B (pre-earnings straddle) |
+| 0a | Stocks-in-play day trading (Zarattini, Barbon & Aziz 2024): each morning pick stocks with the highest relative volume (incl. lower-priced names gaining attention via Robinhood scans), trade the 5-minute opening-range breakout, stop at the range, exit by close. Test on Robinhood 5-min bars (Feb 2026+) for a broad universe, with spread costs | published evidence for a daily intraday edge on 'stocks in play' | rejected on 40 large/mid caps (2026-10-01: IS +0.16R t 1.7 -> OOS -0.12R); RV>=2 hint positive in both halves but small sample. Forward paper test on scanner small caps continues; revisit with 30+ long paper trades |
+| 1 | Cash yield: hold idle cash in SGOV (T-bill ETF) instead of cash | ~4% on idle cash, near-zero risk | adopted 2026-10-01 (Strategy 4: idle cash >= $20 in SGOV) |
+| 2 | QQQ vs SPY: 3–6-month momentum picks which one the core holds | Nasdaq led most of 2010–2026 | adopted 2026-10-01 as Strategy 1b (126-day pick + SMA200 + absolute momentum), phased in |
+| 3 | SPY dip-buy: add IWM/QQQ as extra dip candidates | more dip trades per year | adopted 2026-10-01, effective 2026-10-05 (lowest RSI(2) of SPY/QQQ/IWM) |
+| 4 | ETH trend sleeve (ETHA/ETHE) alongside Bitcoin | second crypto trend, diversification | rejected 2026-10-01 (50/50 BTC/ETH trend: IS +56% vs +44%/yr, OOS +20.5% vs +25.4%) |
+| 5 | Turn-of-month effect: hold SPY dip sleeve last 1 + first 3 days of month | strong OOS result earlier (+0.4%/trade, t 6.9) | adopted 2026-10-01 as Strategy 4 (last 4 + first 1 days, no filter; OOS +0.39%/trade, t 2.5) |
+| 6 | Bitcoin swing: RSI(2) thresholds re-check with more IBIT data | only 37 trades so far | tested 2026-10-01 on spot BTC: trend half confirmed on unseen 2014-17; swing ~0 in 2018-21 on spot (GBTC artifact), +4.9%/trade 2014-17, +1.2% 2022-26. Review swing sizing at the 2026-10-03 weekly review |
+| 7 | Post-IPO lockup rebound on 100+ IPOs | +3.5% (t 1.8) on 38 IPOs | todo |
+| 8 | Volatility-scale SPY core too (target 15%) | smaller crashes | rejected 2026-10-01 (lower DD but lower CAGR both periods on the rotation) |
+| 9 | Weekend Bitcoin gap: does Monday IBIT gap predict the week? | IBIT misses weekends | rejected 2026-10-01 (weekend/next-week correlation -0.05 in 2015-20, +0.11 in 2021-26; down-weekend effect flips sign) |
+| 10 | Execution: trade at 3:48 vs close — measure slippage from live fills | real costs vs assumed | todo |
+| 11 | Option SELLING, unlocked by account size: ≥$500–1,000 → SPY/QQQ $1-wide put credit spreads (retest on real prices, 30/5-delta rules scaled down); ≥$5,000 → covered calls on IBIT/ETFs; ≥$47,000 → full SPY 30/5-delta put spread (86% win, +3.4%/trade on real prices). Monthly review checks account size and runs the adoption test when a threshold is crossed | harvests the volatility risk premium (Cboe BXM/PUT: equity-like returns, lower volatility) | $1-wide and $5-wide tested 2026-09-30: both REJECTED (reports/put_spread_1wide_backtest.md, put_spread_5wide_backtest.md). $5-wide has an edge per trade (+6%/trade, t 2.7) but it is weak out-of-sample (t 1.2) and too big for a small account (one loss = 20% of $2k). Next: retest at ≥ $25k with each spread ≤ ~2% of the account; covered calls on IBIT at ~$5k still to test |
+| 11b | IPO breakout rule on a large unbiased IPO list (incl. delisted): buy on a close above the first-20-day high, exit below the 50-day SMA | 44-trade test: +5.6% vs QQQ (t 1.2), worst trade -23% vs -90%+ for buying at listing | todo |
+| 12 | Core risk-off asset (cash vs SHY/IEF/TLT/GLD when the rotation is out) | crash protection without idle cash | adopted 2026-10-01 for T-bills (SGOV), effective 2026-10-05; bonds/gold rejected |

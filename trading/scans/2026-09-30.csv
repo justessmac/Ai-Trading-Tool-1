@@ -1,0 +1,57 @@
+date,ticker,price,pct_change,rel_volume,source,reason,action
+2026-09-30,RDN,30.61,-6.5,3.9,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",mortgage insurer down with MTG after TransUnion extended VantageScore 4.0 mortgage pricing (FICO -17% premarket),lead only
+2026-09-30,LQDA,30.39,-57.0,18.8,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",-57% on 18.8x volume; cause not verified (check news before any use),lead only
+2026-09-30,ADEA,26.0973,+5.6,2.7,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",Adeia,lead only
+2026-09-30,MTG,25.9,-8.3,2.7,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",same credit-score / mortgage news as RDN,lead only
+2026-09-30,NESR,25.65,-3.2,2.3,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",National Energy Services Reunited Corp,lead only
+2026-09-30,GEN,22.1961,+6.5,2.1,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",Gen Digital +6.5% on 2x volume,lead only
+2026-09-30,NLY,18.9999,-6.5,2.7,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)","mREITs sold off (NLY, BXMT, ORC, REM)",lead only
+2026-09-30,XRPN,18.95,+46.9,7.1,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)","SPAC (Armada II) +47%; XRP-treasury deal hype, pump risk",lead only
+2026-09-30,CAG,13.4214,-5.0,3.4,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",Conagra -5% (earnings day),lead only
+2026-09-30,DNA,12.85,+7.4,2.9,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",Ginkgo Bioworks,lead only
+2026-09-30,MAT,12.72,-3.8,3.0,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",Mattel,lead only
+2026-09-30,BXMT,11.4,-7.4,2.1,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",mREIT sell-off,lead only
+2026-09-30,APPX,10.86,-9.7,2.4,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",Tradr 2X Long APP Daily ETF,lead only
+2026-09-30,TRLV,10.8126,-12.9,4.1,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)","cannabis group sell-off (MSOS -12%, GLAS -18%, TLRY -5%)",lead only
+2026-09-30,SGMT,9.89,+6.0,4.9,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",Sagimet Biosciences Inc. Series A,lead only
+2026-09-30,IBRX,9.5001,+7.6,2.8,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",+7.6% (also StockTwits trending),lead only
+2026-09-30,CAPR,9.44,+10.2,3.7,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",+10% (also StockTwits trending),lead only
+2026-09-30,PGEN,8.7268,+8.4,2.5,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",+8.4% (also StockTwits trending),lead only
+2026-09-30,ITUB,8.48,+4.8,2.6,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",Itau Unibanco,lead only
+2026-09-30,QTTB,8.35,-12.4,8.8,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",-12%,lead only
+2026-09-30,APLX,6.9,-7.1,2.1,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",Tradr 2X Long APLD Daily ETF,lead only
+2026-09-30,STTK,6.89,+5.4,3.1,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",Shattuck Labs,lead only
+2026-09-30,MSGY,5.7493,+29.5,3.7,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",+29%; microcap,lead only
+2026-09-30,GLAS,5.6,-17.5,7.2,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",cannabis sell-off,lead only
+2026-09-30,ORC,5.45,-5.5,2.1,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",mREIT sell-off,lead only
+2026-09-30,SVRA,5.26,+3.5,3.5,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",Savara,lead only
+2026-09-30,LGHL,5.21,+15.5,4.9,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",+15.5%; today's paper short (scored in trading/paper/),lead only
+2026-09-30,COUR,4.9599,+6.2,2.6,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",Coursera,lead only
+2026-09-30,BEZ,4.94,+8.8,2.2,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",Tradr 2X Short BE Daily ETF,lead only
+2026-09-30,MSOS,4.49,-11.8,4.3,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",cannabis ETF -12%,lead only
+2026-09-30,TNON,4.27,+56.4,4.6,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",microcap +56% on 52M sh; pump pattern,lead only
+2026-09-30,MNKD,3.95,+18.3,3.9,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",+18%,lead only
+2026-09-30,CDZI,3.92,+9.5,2.5,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",Cadiz,lead only
+2026-09-30,TLRY,3.7581,-4.9,2.1,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",cannabis sell-off,lead only
+2026-09-30,SITC,3.37,+8.4,4.3,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",SITE Centers Corp.,lead only
+2026-09-30,LUNL,3.3596,-3.2,2.4,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",Defiance Daily Target 2X Long LUNR ETF,lead only
+2026-09-30,LPA,3.2993,+17.0,91.3,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)","+17%, 91x volume",lead only
+2026-09-30,GOW,3.1477,+73.9,32.7,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)","microcap +74%, 33x volume; pump pattern",lead only
+2026-09-30,TARA,3.0676,-4.4,12.1,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",Protara Therapeutics,lead only
+2026-09-30,CMCT,3,+56.3,1329.2,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",+56% on 1329x volume; microcap,lead only
+2026-09-30,CBRG,2.7298,-16.8,2.3,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",2x CBRS ETF -17%,lead only
+2026-09-30,SDEV,2.69,-17.7,3.5,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",-18%; stablecoin microcap,lead only
+2026-09-30,CHGA,2.48,+26.5,66.3,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)","+27%, 66x volume; microcap",lead only
+2026-09-30,PEPG,2.44,+4.3,2.9,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",PepGen,lead only
+2026-09-30,MSOX,2.35,-24.9,4.2,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",2x cannabis ETF,lead only
+2026-09-30,PYXS,2.3197,-20.0,10.0,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",-20%,lead only
+2026-09-30,PACB,2.2897,+25.1,11.0,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",+25% on 80M sh,lead only
+2026-09-30,AVXL,2.04,-13.6,3.9,"RH scanner (relvol>=2, $2-50, vol>=2M, |chg|>=3%)",-14%,lead only
+2026-09-30,MU,,,,StockTwits + Yahoo trending + WSB,"Q4 beat after the close, Q1 guide above estimates; the pre-earnings straddle test (Setup B) is moot for this cycle",lead only; no adopted strategy covers single stocks
+2026-09-30,GOOGL;GOOG,,,,StockTwits + Yahoo trending + WSB,Gemini 4 release headlines,lead only
+2026-09-30,APP;SNDK;ASTS;SOFI;NU;CBRS;INTC;ZETA,,,,StockTwits trending,top trending tickers,lead only
+2026-09-30,HOOD;CEG;UTHR;PRGS;SNPS;JBL;VICR;GIS,,,,Yahoo trending,trending list,lead only
+2026-09-30,NKE,,,,r/stocks,earnings Oct 1 after the close,lead only
+2026-09-30,NUAI,,,,WSB,"short-squeeze post (43% short float claim); unverified, pump risk",ignore
+2026-09-30,ARXS;MAIR;AVEX;ALMR;KLRA,,,,WebSearch lockup tracker,estimated IPO lockup expiries Oct 13-14,lead: possible lockup-expiry event study later
+2026-09-30,SPY,,,,Macro,PCE cooler than expected; S&P +0.6% midday,none: SPY core rule unchanged

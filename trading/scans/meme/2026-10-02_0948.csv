@@ -1,0 +1,7 @@
+ticker,price,pct_change,rel_volume,catalyst,catalyst_source,options_pass_filters,verdict
+SYNA,120.57,13.6,3.5,"ON Semi amended deal to all-cash $123/sh (was all-stock)",Investing.com / 24/7 Wall St / Benzinga,not checked (no thesis),"reject: merger-arb pinned below $123 cash price; calls have capped upside"
+STX,831.03,-12.1,1.1,"Nikkei: Toshiba to double HDD capacity by FY2027 (~$380M)",Yahoo Finance / Investing.com,no (affordable Oct 9 calls OI<200, spreads 40-150% of mid),"reject on liquidity; bouncing from 803 low"
+WDC,~416,-10,n/a,same Toshiba report,same,no (Oct 9 $450C = $645 > cash),reject: too expensive
+NKE,33.21,-5.5,1.2,FQ1 earnings (already traded),journal,n/a,done (sold 09:35)
+SDEV,5.77,57.7,3.3,stablecoin microcap momentum,RH scanner,no listed options worth trading,skip
+AMOD,~4.5,~290,136,$250M bitcoin-settled PIPE,gurufocus (company PR),no liquid options,skip
